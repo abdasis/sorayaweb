@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>UBold - Responsive Admin Dashboard & Landing Page Template</title>
+        <title>Soraya Web Profile - Company Profile By Abd. Asis</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
@@ -36,7 +36,7 @@
                         <div class="row align-items-center">
                             <div class="col-lg-6">
                                 <div class="home-title mo-mb-20">
-                                    <h1 class="mb-4 text-white">Nama Perusahaan adalah sebuah perusahaan yang bergerak di bidang anu</h1>
+                                    <h1 class="mb-4 text-white">Soraya Adalah Perusahaan yang bergerak dibidang</h1>
                                     <p class="text-white-50 home-desc mb-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore praesentium voluptas corporis, pariatur tempora blanditiis? Eaque rem odio sint officia ratione! Nemo cum ut atque reiciendis eum aliquid, tempore ab! </p>
                                     <div class="subscribe">
                                         <form>
@@ -118,7 +118,7 @@
                     <div class="col-lg-4">
                         <div class="features-box shadow">
                             <div class="features-img mb-4">
-                                <img src="{{ url('/') }}/frontend/assets/images/icons/layers.png" alt="">
+                                <img src="{{ url('/') }}/frontend/assets/images/icons/panel-surya.png" alt="">
                             </div>
                             <h4 class="mb-2">PANEL SURYA</h4>
                             <p class="text-muted">link penuh untuk panel surya monocrystallin dan polycrystalline</p>
@@ -128,7 +128,7 @@
                     <div class="col-lg-4">
                         <div class="features-box shadow">
                             <div class="features-img mb-4 ">
-                                <img src="{{ url('/') }}/frontend/assets/images/icons/core.png" alt="">
+                                <img src="{{ url('/') }}/frontend/assets/images/icons/tata-surya.png" alt="">
                             </div>
                             <h4 class="mb-2">TATA SURYA</h4>
                             <p class="text-muted">Sistem tata surya sunwa mengandung semua komponen yang</p>
@@ -138,7 +138,7 @@
                     <div class="col-lg-4">
                         <div class="features-box shadow">
                             <div class="features-img mb-4 ">
-                                <img src="{{ url('/') }}/frontend/assets/images/icons/paperdesk.png" alt="">
+                                <img src="{{ url('/') }}/frontend/assets/images/icons/solar-inverter.png" alt="">
                             </div>
                             <h4 class="mb-2">SOLAR INVERTER</h4>
                             <p class="text-muted">matahari matahari matarhari menyedian grid (grid terikat)</p>
@@ -671,91 +671,7 @@
         <!-- cta end -->
 
         <!-- footer start -->
-        <footer class="bg-dark footer">
-            <div class="container-fluid">
-                <div class="row mb-5">
-                    <div class="col-lg-4">
-                        <div class="pr-lg-4">
-                            <div class="mb-4">
-                                <img src="{{ url('/') }}/frontend/assets/images/logo-light.png" alt="" height="20">
-                            </div>
-                            <p class="text-white-50">A Responsive Bootstrap 4 Web App Kit</p>
-                            <p class="text-white-50">Ubold is a fully featured premium admin template built on top of awesome Bootstrap 4.1.3, modern web technology HTML5, CSS3 and jQuery.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-2">
-                        <div class="footer-list">
-                            <p class="text-white mb-2 footer-list-title">About</p>
-                            <ul class="list-unstyled">
-                                <li><a href="#"><i class="mdi mdi-chevron-right mr-2"></i>Home</a></li>
-                                <li><a href="#"><i class="mdi mdi-chevron-right mr-2"></i>Features</a></li>
-                                <li><a href="#"><i class="mdi mdi-chevron-right mr-2"></i>Faq</a></li>
-                                <li><a href="#"><i class="mdi mdi-chevron-right mr-2"></i>Clients</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-2">
-                        <div class="footer-list">
-                            <p class="text-white mb-2 footer-list-title">Social</p>
-                            <ul class="list-unstyled">
-                                <li><a href="#"><i class="mdi mdi-chevron-right mr-2"></i>Facebook </a></li>
-                                <li><a href="#"><i class="mdi mdi-chevron-right mr-2"></i>Twitter</a></li>
-                                <li><a href="#"><i class="mdi mdi-chevron-right mr-2"></i>Behance</a></li>
-                                <li><a href="#"><i class="mdi mdi-chevron-right mr-2"></i>Dribble</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-2">
-                        <div class="footer-list">
-                            <p class="text-white mb-2 footer-list-title">Support</p>
-                            <ul class="list-unstyled">
-                                <li><a href="#"><i class="mdi mdi-chevron-right mr-2"></i>Help & Support</a></li>
-                                <li><a href="#"><i class="mdi mdi-chevron-right mr-2"></i>Privacy Policy</a></li>
-                                <li><a href="#"><i class="mdi mdi-chevron-right mr-2"></i>Terms & Conditions</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-2">
-                        <div class="footer-list">
-                            <p class="text-white mb-2 footer-list-title">More Info</p>
-                            <ul class="list-unstyled">
-                                <li><a href="#"><i class="mdi mdi-chevron-right mr-2"></i>Pricing</a></li>
-                                <li><a href="#"><i class="mdi mdi-chevron-right mr-2"></i>For Marketing</a></li>
-                                <li><a href="#"><i class="mdi mdi-chevron-right mr-2"></i>For Agencies</a></li>
-                                <li><a href="#"><i class="mdi mdi-chevron-right mr-2"></i>Our Apps</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- end row -->
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="float-left pull-none">
-                            <p class="text-white-50">2015 - 2020 © Ubold. Design by <a href="https://coderthemes.com/" target="_blank" class="text-white-50">Coderthemes</a> </p>
-                        </div>
-                        <div class="float-right pull-none">
-                            <ul class="list-inline social-links">
-                                <li class="list-inline-item text-white-50">
-                                    Social :
-                                </li>
-                                <li class="list-inline-item"><a href="#"><i class="mdi mdi-facebook"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="mdi mdi-twitter"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="mdi mdi-instagram"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="mdi mdi-google-plus"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- end col -->
-                </div>
-                <!-- end row -->
-            </div>
-            <!-- container-fluid -->
-        </footer>
+        @include('frontend.includes.footer')
         <!-- footer end -->
 
         <!-- Back to top -->
