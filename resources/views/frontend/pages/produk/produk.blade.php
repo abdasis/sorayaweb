@@ -2,16 +2,20 @@
 
 @section('content')
 <div class="container-fluid">
-    <div class="row">
-        <div class="breadcrumb">
-            Hai
-        </div>
+    <div class="row section-breadcrumb">
+        <nav aria-label="breadcrumb ">
+            <ol class="breadcrumb pl-2">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Library</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Data</li>
+            </ol>
+        </nav>
     </div>
     <div class="row">
         <div class="col-md-4">
-            <div class="category-wrapper mt-5">
+            <div class="category-wrapper">
                 <div class="kategori-box">
-                    <div class="category-widget bg-white shadow py-2 my-2">
+                    <div class="category-widget bg-white shadow py-2">
                         <div class="container">
                             <h4 class="widget-title">
                                 KATEGORI PRODUK
@@ -54,7 +58,7 @@
             </div>
         </div>
         <div class="col-md-8">
-            <div class="product-wrapper mt-5">
+            <div class="product-wrapper">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="card-box product-box shadow">
