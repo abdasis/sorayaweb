@@ -83,3 +83,15 @@
     </div>
     <!-- container-fluid -->
 </footer>
+
+ <!-- Back to top -->
+ <a href="#" class="back-to-top" id="back-to-top"> <i class="mdi mdi-chevron-up"> </i> </a>
+
+ <!-- javascript -->
+ <script src="{{ url('/') }}/frontend/assets/js/jquery.min.js"></script>
+ <script src="{{ url('/') }}/frontend/assets/js/bootstrap.bundle.min.js"></script>
+ <script src="{{ url('/') }}/frontend/assets/js/jquery.easing.min.js"></script>
+ <script src="{{ url('/') }}/frontend/assets/js/scrollspy.min.js"></script>
+
+ <!-- custom js -->
+ <script src="{{ url('/') }}/frontend/assets/js/app.js"></script>

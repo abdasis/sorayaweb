@@ -74,6 +74,9 @@
 
         <main class="py-4">
             @yield('content')
+            <!-- contact start -->
+
+<!-- cta end -->
         </main>
     </div>
 </body>
