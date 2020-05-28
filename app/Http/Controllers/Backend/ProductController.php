@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProductRequest;
+use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -14,7 +18,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::all();
+        return view('backend.pages.product.index')->withProducts($products);
     }
 
     /**
@@ -24,7 +29,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.pages.product.create');
     }
 
     /**
@@ -33,9 +38,30 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-        //
+        DB::beginTransaction();
+        try {
+            $newProduct = new Product();
+            $newProduct->nama_produk = $request->get('nama_produk');
+            $newProduct->diskripsi = $request->get('deskripsi_produk');
+            $newProduct->merk = $request->get('merk_produk');
+            $newProduct->nomor_produk = $request->get('nomor_produk');
+            $newProduct->tipe_produk = $request->get('tipe_produk');
+            $newProduct->max_power = $request->get('max_power');
+            $newProduct->certificate = $request->get('certificate');
+            $newProduct->payment = $request->get('payment');
+            $newProduct->warrant = $request->get('warrant');
+            $newProduct->tag = 'Belum tersedia';
+            $newProduct->category = $request->get('kategori');
+            $newProduct->status = $request->get('status');
+            $newProduct->create_by = Auth::user()->name;
+            $newProduct->save();
+            DB::commit();
+            return redirect()->back()->with(['status' => 'Produk Berhasil Disimpan!']);
+        } catch (\Throwable $th) {
+            DB::rollback();
+        }
     }
 
     /**
@@ -80,6 +106,8 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $products = Product::find($id);
+        $products->delete();
+        return redirect()->back()->with(['status' => 'Data produk berhasil dihapus']);
     }
 }

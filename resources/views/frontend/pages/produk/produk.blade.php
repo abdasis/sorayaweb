@@ -73,7 +73,9 @@
                                     </div>
                                     <div class="col-auto">
                                         <div class="product-price-tag">
-                                            <button class="btn btn-soft-info btn-sm"><i class="mdi mdi-open-in-new"></i></button>
+                                            <a href="{{ route('produk.show', ['produk-1']) }}">
+                                                <button class="btn btn-soft-info btn-sm"><i class="mdi mdi-open-in-new"></i></button>
+                                            </a>
                                         </div>
                                     </div>
                                 </div> <!-- end row -->

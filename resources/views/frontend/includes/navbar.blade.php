@@ -28,7 +28,7 @@
                     <a href="#faq" class="nav-link">Tentang Kami</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#clients" class="nav-link">Hubungan Kami</a>
+                    <a href="{{ route('contact-us.index') }}" class="nav-link">Hubungan Kami</a>
                 </li>
             </ul>
         </div>
