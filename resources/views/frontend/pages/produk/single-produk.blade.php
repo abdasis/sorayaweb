@@ -68,7 +68,7 @@
                                 <div class="col-md-6 py-3">
                                     <div class="product-spec">
                                         <h3 class="product-title">
-                                            3kw dari sistem tenaga surya grid untuk digunakan di rumah
+                                            {{ $product->nama_produk }}
                                         </h3>
                                         <h5 class="product-subtitle">
                                             panel surya 20kw lebih murah 220v 60hz di grid 20000 watts sistem tenaga surya
@@ -78,22 +78,22 @@
                                             <tr>
                                                 <th>Merek </th>
                                                 <td>:</td>
-                                                <td>Sunway Solar</td>
+                                                <td>{{ $product->merk }}</td>
                                             </tr>
                                             <tr>
                                                 <th>Item No.</th>
                                                 <td>:</td>
-                                                <td>SW-20KW-ON </td>
+                                                <td>{{ $product->nomor_produk }} </td>
                                             </tr>
                                             <tr>
                                                 <th>Type</th>
                                                 <td>:</td>
-                                                <td>On Grid </td>
+                                                <td>{{ $product->tipe_produk }} </td>
                                             </tr>
                                             <tr>
                                                 <th>Max. Power</th>
                                                 <td>:</td>
-                                                <td>20KW</td>
+                                                <td>{{ $product->max_power }}</td>
                                             </tr>
                                             <tr>
                                                 <th>Output Votagey</th>
@@ -103,17 +103,17 @@
                                             <tr>
                                                 <th>Certificate</th>
                                                 <td>:</td>
-                                                <td>CE TUV INMETRO</td>
+                                                <td>{{ $product->certificate }}</td>
                                             </tr>
                                             <tr>
                                                 <th>Payment</th>
                                                 <td>:</td>
-                                                <td>T/T L/C </td>
+                                                <td>{{ $product->payment }}</td>
                                             </tr>
                                             <tr>
                                                 <th>Warrant</th>
                                                 <td>:</td>
-                                                <td>25 Year </td>
+                                                <td>{{ $product->warrant }} Year </td>
                                             </tr>
                                         </table>
                                         <a href="#" class="btn btn-success rounded">Hubungi Sekarang</a>
@@ -127,9 +127,7 @@
                                             RINCIAN PRODUCT
                                         </h4>
                                         <div class="discription-content">
-                                            <p>
-                                                Diikat dengan grid, on-grid, utilitas-interaktif, grid intertie dan grid backfeeding adalah semua istilah yang digunakan untuk menggambarkan konsep yang sama - sistem tata surya yang terhubung ke jaringan listrik utilitas.10KW sistem PV lengkap dengan panel surya, inverter. kabel dan sistem pemasangan
-                                            </p>
+                                            {{ $product->diskripsi }}
                                         </div>
                                     </div>
                                 </div>
