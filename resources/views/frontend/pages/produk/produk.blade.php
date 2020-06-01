@@ -11,7 +11,7 @@
             </ol>
         </nav>
     </div>
-    <div class="row">
+    <div class="row" style="margin-top: 50px">
         <div class="col-md-4">
             <div class="category-wrapper">
                 <div class="kategori-box">
@@ -59,6 +59,7 @@
         </div>
         <div class="col-md-8">
             <div class="product-wrapper">
+                @if (count($products)>0)
                 <div class="row">
                     @foreach ($products as $product)
                     <div class="col-md-4">
@@ -85,26 +86,17 @@
                     </div>
                     @endforeach
                 </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-md-12">
-                    <nav aria-label="..." class="mx-auto m-0">
-                        <ul class="pagination justify-content-center">
-                          <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1">Previous</a>
-                          </li>
-                          <li class="page-item"><a class="page-link" href="#">1</a></li>
-                          <li class="page-item active">
-                            <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                          </li>
-                          <li class="page-item"><a class="page-link" href="#">3</a></li>
-                          <li class="page-item">
-                            <a class="page-link" href="#">Next</a>
-                          </li>
-                        </ul>
-                      </nav>
+                @else
+                <div class="row">
+                    <div class="container">
+                        <div class="alert alert-warning">
+                            <h5>Belum ada produk yang tersedia</h5>
+                        </div>
+                    </div>
                 </div>
+                @endif
             </div>
+
         </div>
     </div>
 </div>

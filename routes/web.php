@@ -14,9 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'Frontend\HomeController@index')->name('beranda.home');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
@@ -26,4 +24,6 @@ Route::resource('proyek', 'Frontend\ProyekController');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('/product', 'Backend\ProductController');
+    Route::resource('/kategori', 'Backend\CategoryController');
+    Route::resource('/slider', 'Backend\SliderController');
 });

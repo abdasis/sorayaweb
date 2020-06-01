@@ -89,7 +89,25 @@
                                 <a href="{{ route('product.index') }}">Daftar Produk</a>
                             </li>
                             <li>
-                                <a href="#">Kategori</a>
+                                <a href="{{ route('kategori.index') }}">Kategori</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="#sidebarProduk" data-toggle="collapse">
+                        <i class=" fas fa-images"></i>
+                        <span> Slider </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarProduk">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('slider.create') }}">Tambah Slider</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('slider.index') }}">Daftar Slider</a>
                             </li>
                         </ul>
                     </div>

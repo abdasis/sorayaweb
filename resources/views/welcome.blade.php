@@ -3,42 +3,30 @@
 
 @section('content')
         <!-- home start -->
-<section class="bg-home bg-gradient" id="home">
-    <div class="home-center">
-        <div class="home-desc-center">
-            <div class="container-fluid">
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <div class="home-title mo-mb-20">
-                            <h1 class="mb-4 text-white">Soraya Adalah Perusahaan yang bergerak dibidang</h1>
-                            <p class="text-white home-desc mb-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore praesentium voluptas corporis, pariatur tempora blanditiis? Eaque rem odio sint officia ratione! Nemo cum ut atque reiciendis eum aliquid, tempore ab! </p>
-                            <div class="subscribe">
-                                <form>
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <div class="mb-2">
-                                                <input type="text" class="form-control" placeholder="Enter your e-mail address">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <button type="submit" class="btn btn-rounded btn-outline-light">Subscribe Us</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
+<section class="slider " style="margin-top: 100px">
+    <div class="container-fluid shadow-sm">
+        <div class="card card-slider">
+            <div id="carouselExampleCaption" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner" role="listbox" style="position: relative;">
+                    @foreach ($sliders as $key => $slider)
+                    <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                        <img src="{{ url('/') }}/gambar_slider/{{ $slider->gambar_slider }}"  alt="{{ $slider->gambar_slider }}" class="d-block img-fluid">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3 class="text-white">First slide label</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                         </div>
                     </div>
-                    <div class="col-xl-4 offset-xl-2 col-lg-5 offset-lg-1 col-md-7">
-                        <div class="home-img position-relative">
-                            <img src="{{ url('/') }}/frontend/assets/images/products/panel_surya.jpg" alt="" class="home-first-img">
-                            {{-- <img src="{{ url('/') }}/frontend/assets/images/home-img.png" alt="" class="home-second-img mx-auto d-block">
-                            <img src="{{ url('/') }}/frontend/assets/images/home-img.png" alt="" class="home-third-img"> --}}
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
-                <!-- end row -->
+                <a class="carousel-control-prev" href="#carouselExampleCaption" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleCaption" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
-            <!-- end container-fluid -->
         </div>
     </div>
 </section>
@@ -124,196 +112,31 @@
                 </div>
             </div>
         </div>
+
         <!-- end row -->
 
         <div class="row">
-            <div class="col-md-6 col-xl-3">
-                <div class="card-box product-box">
-
-
-                    <div class="bg-light">
-                        <img src="{{ url('/') }}/frontend/assets/images/products/produk-1.jpg"  alt="product-pic" class="img-fluid">
-                    </div>
-
+            @foreach ($products as $product)
+            <div class="col-md-4">
+                <div class="card-box product-box shadow">
+                    <img src="{{ url('/') }}/frontend/assets/images/products/produk-1.jpg"  alt="{{ $product->nama_produk }}" class="img-fluid align-content-center">
                     <div class="product-info">
                         <div class="row align-items-center">
                             <div class="col">
-                                <h5 class="font-15 mt-0 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">3kw dari sistem tenaga surya grid untuk digunakan di rumah</a> </h5>
+                                <h5 class="font-15 mt-0 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">{{ $product->nama_produk }}</a> </h5>
                             </div>
                             <div class="col-auto">
                                 <div class="product-price-tag">
-                                    <button class="btn btn-soft-info btn-sm"><i class="mdi mdi-open-in-new"></i></button>
+                                    <a href="{{ route('produk.show', $product->id) }}">
+                                        <button class="btn btn-soft-info btn-sm"><i class="mdi mdi-open-in-new"></i></button>
+                                    </a>
                                 </div>
                             </div>
                         </div> <!-- end row -->
                     </div> <!-- end product info-->
                 </div> <!-- end card-box-->
-            </div> <!-- end col-->
-
-            <div class="col-md-6 col-xl-3">
-                <div class="card-box product-box">
-
-
-                    <div class="bg-light">
-                        <img src="{{ url('/') }}/frontend/assets/images/products/produk-2.jpg"  alt="product-pic" class="img-fluid">
-                    </div>
-
-                    <div class="product-info">
-                        <div class="row align-items-center">
-                            <div class="col">
-                                <h5 class="font-15 mt-0 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">dari grid sistem tenaga surya 1kw</a> </h5>
-                            </div>
-                            <div class="col-auto">
-                                <div class="product-price-tag">
-                                    <button class="btn btn-soft-info btn-sm"><i class="mdi mdi-open-in-new"></i></button>
-
-                                </div>
-                            </div>
-                        </div> <!-- end row -->
-                    </div> <!-- end product info-->
-                </div> <!-- end card-box-->
-            </div> <!-- end col-->
-
-            <div class="col-md-6 col-xl-3">
-                <div class="card-box product-box">
-
-
-                    <div class="bg-light">
-                        <img src="{{ url('/') }}/frontend/assets/images/products/produk-3.jpg"  alt="product-pic" class="img-fluid">
-                    </div>
-
-                    <div class="product-info">
-                        <div class="row align-items-center">
-                            <div class="col">
-                                <h5 class="font-15 mt-0 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">panel surya monocrystalline seri 72 sel</a> </h5>
-                            </div>
-                            <div class="col-auto">
-                                <div class="product-price-tag">
-                                    <button class="btn btn-soft-info btn-sm"><i class="mdi mdi-open-in-new"></i></button>
-
-                                </div>
-                            </div>
-                        </div> <!-- end row -->
-                    </div> <!-- end product info-->
-                </div> <!-- end card-box-->
-            </div> <!-- end col-->
-
-            <div class="col-md-6 col-xl-3">
-                <div class="card-box product-box">
-                    <div class="bg-light shadow-sm">
-                        <img src="{{ url('/') }}/frontend/assets/images/products/produk-4.jpg"  alt="product-pic" class="img-fluid">
-                    </div>
-
-                    <div class="product-info">
-                        <div class="row align-items-center">
-                            <div class="col">
-                                <h5 class="font-15 mt-0 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">panel surya polikristalin 72 sel seri</a> </h5>
-                            </div>
-                            <div class="col-auto">
-                                <div class="product-price-tag">
-                                    <button class="btn btn-soft-info btn-sm"><i class="mdi mdi-open-in-new"></i></button>
-
-                                </div>
-                            </div>
-                        </div> <!-- end row -->
-                    </div> <!-- end product info-->
-                </div> <!-- end card-box-->
-            </div> <!-- end col-->
-        </div>
-
-        <div class="row">
-            <div class="col-md-6 col-xl-3">
-                <div class="card-box product-box">
-
-
-                    <div class="bg-light">
-                        <img src="{{ url('/') }}/frontend/assets/images/products/produk-5.jpg"  alt="product-pic" class="img-fluid">
-                    </div>
-
-                    <div class="product-info">
-                        <div class="row align-items-center">
-                            <div class="col">
-                                <h5 class="font-15 mt-0 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">1kw solar pada sistem jaringan listrik untuk digunakan di rumah</a> </h5>
-                            </div>
-                            <div class="col-auto">
-                                <div class="product-price-tag">
-                                    <button class="btn btn-soft-info btn-sm"><i class="mdi mdi-open-in-new"></i></button>
-                                </div>
-                            </div>
-                        </div> <!-- end row -->
-                    </div> <!-- end product info-->
-                </div> <!-- end card-box-->
-            </div> <!-- end col-->
-
-            <div class="col-md-6 col-xl-3">
-                <div class="card-box product-box">
-
-
-                    <div class="bg-light">
-                        <img src="{{ url('/') }}/frontend/assets/images/products/produk-6.jpg"  alt="product-pic" class="img-fluid">
-                    </div>
-
-                    <div class="product-info">
-                        <div class="row align-items-center">
-                            <div class="col">
-                                <h5 class="font-15 mt-0 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">Sistem grid tenaga surya 20kw terikat untuk penggunaan komersial</a> </h5>
-                            </div>
-                            <div class="col-auto">
-                                <div class="product-price-tag">
-                                    <button class="btn btn-soft-info btn-sm"><i class="mdi mdi-open-in-new"></i></button>
-
-                                </div>
-                            </div>
-                        </div> <!-- end row -->
-                    </div> <!-- end product info-->
-                </div> <!-- end card-box-->
-            </div> <!-- end col-->
-
-            <div class="col-md-6 col-xl-3">
-                <div class="card-box product-box">
-
-
-                    <div class="bg-light">
-                        <img src="{{ url('/') }}/frontend/assets/images/products/produk-7.jpg"  alt="product-pic" class="img-fluid">
-                    </div>
-
-                    <div class="product-info">
-                        <div class="row align-items-center">
-                            <div class="col">
-                                <h5 class="font-15 mt-0 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">Sistem grid surya tenaga surya 5kw untuk digunakan di rumah</a> </h5>
-                            </div>
-                            <div class="col-auto">
-                                <div class="product-price-tag">
-                                    <button class="btn btn-soft-info btn-sm"><i class="mdi mdi-open-in-new"></i></button>
-
-                                </div>
-                            </div>
-                        </div> <!-- end row -->
-                    </div> <!-- end product info-->
-                </div> <!-- end card-box-->
-            </div> <!-- end col-->
-
-            <div class="col-md-6 col-xl-3">
-                <div class="card-box product-box">
-                    <div class="bg-light shadow-sm">
-                        <img src="{{ url('/') }}/frontend/assets/images/products/produk-8.jpg"  alt="product-pic" class="img-fluid">
-                    </div>
-
-                    <div class="product-info">
-                        <div class="row align-items-center">
-                            <div class="col">
-                                <h5 class="font-15 mt-0 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">5kw perumahan dari jaringan sistem tenaga surya</a> </h5>
-                            </div>
-                            <div class="col-auto">
-                                <div class="product-price-tag">
-                                    <button class="btn btn-soft-info btn-sm"><i class="mdi mdi-open-in-new"></i></button>
-
-                                </div>
-                            </div>
-                        </div> <!-- end row -->
-                    </div> <!-- end product info-->
-                </div> <!-- end card-box-->
-            </div> <!-- end col-->
+            </div>
+            @endforeach
         </div>
         <!-- end row -->
     </div> <!-- end container-fluid -->

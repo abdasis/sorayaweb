@@ -127,7 +127,7 @@
                                             RINCIAN PRODUCT
                                         </h4>
                                         <div class="discription-content">
-                                            {{ $product->diskripsi }}
+                                            {!! $product->diskripsi !!}
                                         </div>
                                     </div>
                                 </div>
