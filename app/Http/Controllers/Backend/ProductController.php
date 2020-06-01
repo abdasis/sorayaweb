@@ -61,7 +61,7 @@ class ProductController extends Controller
                 file_put_contents($path, $data);
 
                 $img->removeattribute('src');
-                $img->setattribute('src', $path);
+                $img->setattribute('src', url('/') . '/' . 'gambar-produk' . '/' . $image_name);
             }
 
 
