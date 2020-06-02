@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\Proyek;
 use App\Models\Slider;
+use GuzzleHttp\Handler\Proxy;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -18,9 +20,11 @@ class HomeController extends Controller
     {
         $sliders = Slider::all();
         $products = Product::paginate(6);
+        $proyeks = Proyek::paginate(6);
         return view('welcome')->with([
             'products' => $products,
-            'sliders' => $sliders
+            'sliders' => $sliders,
+            'proyeks' => $proyeks
         ]);
     }
 

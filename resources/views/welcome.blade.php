@@ -4,29 +4,27 @@
 @section('content')
         <!-- home start -->
 <section class="slider " style="margin-top: 100px">
-    <div class="container-fluid shadow-sm">
-        <div class="card card-slider">
-            <div id="carouselExampleCaption" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner" role="listbox" style="position: relative;">
-                    @foreach ($sliders as $key => $slider)
-                    <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                        <img src="{{ url('/') }}/gambar_slider/{{ $slider->gambar_slider }}"  alt="{{ $slider->gambar_slider }}" class="d-block img-fluid">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h3 class="text-white">First slide label</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                    </div>
-                    @endforeach
+    <div class="card card-slider">
+        <div id="carouselExampleCaption" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner" role="listbox" style="position: relative;">
+                @foreach ($sliders as $key => $slider)
+                <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                    <img src="{{ url('/') }}/gambar_slider/{{ $slider->gambar_slider }}"  alt="{{ $slider->gambar_slider }}" class="d-block img-fluid image-slider">
+                    {{-- <div class="carousel-caption d-none d-md-block">
+                        <h3 class="text-white">First slide label</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div> --}}
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleCaption" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleCaption" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+                @endforeach
             </div>
+            <a class="carousel-control-prev" href="#carouselExampleCaption" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleCaption" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
     </div>
 </section>
@@ -47,7 +45,7 @@
         <!-- end row -->
 
         <div class="row">
-            <div class="col-lg-4">
+            <div class="col-lg-3">
                 <div class="features-box shadow">
                     <div class="features-img mb-4">
                         <img src="{{ url('/') }}/frontend/assets/images/icons/panel-surya.png" alt="">
@@ -57,7 +55,7 @@
                 </div>
             </div>
             <!-- end col -->
-            <div class="col-lg-4">
+            <div class="col-lg-3">
                 <div class="features-box shadow">
                     <div class="features-img mb-4 ">
                         <img src="{{ url('/') }}/frontend/assets/images/icons/tata-surya.png" alt="">
@@ -67,12 +65,21 @@
                 </div>
             </div>
             <!-- end col -->
-            <div class="col-lg-4">
+            <div class="col-lg-3">
                 <div class="features-box shadow">
                     <div class="features-img mb-4 ">
                         <img src="{{ url('/') }}/frontend/assets/images/icons/solar-inverter.png" alt="">
                     </div>
                     <h4 class="mb-2">SOLAR INVERTER</h4>
+                    <p class="text-muted">matahari matahari matarhari menyedian grid (grid terikat)</p>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="features-box shadow">
+                    <div class="features-img mb-4 ">
+                        <img src="{{ url('/') }}/frontend/assets/images/icons/solar-inverter.png" alt="">
+                    </div>
+                    <h4 class="mb-2">PART & ACCESSORIES</h4>
                     <p class="text-muted">matahari matahari matarhari menyedian grid (grid terikat)</p>
                 </div>
             </div>
@@ -91,7 +98,7 @@
             <div class="col-md-6">
                 <div class="card-box about-box">
                     <h1>TENTANG SUNWAY SOLAR</h1>
-                    <p>Hefei Sunway Solar Energy Tech. Co., Ltd. Grup sunway adalah perusahaan grup berkembang internasional, beragam, dan komprehensif yang berkomitmen untuk menyediakan bahan makanan, produk sekali pakai medis dan sistem pembangkit listrik pv secara global. sunway solar sebagai anak perusahaan dari kelompok sunway, yang mengkhususkan diri dalam r & ...</p>
+                    <p>ANUGRAH RAYA Solar Enegegy adalah perusahaan grup nasioanl ang berkembang yang berkomitmen untuk menyediakan sistem pembangkit listrik pv secara global. AUGERAH RAYA solar enegy bekejra sama dengan SUNFINE SOLAR TECHNOLOGY CO LTD yang mengkhususkan diri dalam promotion and application of new energy products, especially solar pumping system.</p>
                     <button class="btn btn-outline-light btn-lg btn-rounded">BACA LEBIH BANYAK</button>
                 </div>
             </div>
@@ -119,7 +126,10 @@
             @foreach ($products as $product)
             <div class="col-md-4">
                 <div class="card-box product-box shadow">
-                    <img src="{{ url('/') }}/frontend/assets/images/products/produk-1.jpg"  alt="{{ $product->nama_produk }}" class="img-fluid align-content-center">
+                    <a href="{{ route('produk.show', $product->id) }}">
+                        <img src="{{ url('/') }}/frontend/assets/images/products/produk-1.jpg"  alt="{{ $product->nama_produk }}" class="img-fluid align-content-center">
+
+                    </a>
                     <div class="product-info">
                         <div class="row align-items-center">
                             <div class="col">
@@ -160,70 +170,17 @@
         <div class="row">
             <div class="col-lg-4 col-md-6">
                 <div class="demo-box bg-white mt-4 p-2">
-                    <a href="#" class="text-dark">
-                        <img src="{{ url('/') }}/frontend/assets/images/products/proyek-1.jpg" alt="" class="img-fluid mx-auto d-block">
+                    <a href="{{ route('proyek.show', 1) }}" class="text-dark">
+                        <img src="{{ url('/') }}/frontend/assets/images/proyek/proyek-1.png" alt="" class="img-fluid mx-auto d-block">
                         <div class="p-3 text-center">
                             <h5 class="mb-0">{{ strtoupper('rumah menggunakan 2kw dari sistem tenaga surya grid di Sri Lanka') }}</h5>
                         </div>
                     </a>
                 </div>
             </div>
-            <!-- end col -->
-            <div class="col-lg-4 col-md-6">
-                <div class="demo-box bg-white mt-4 p-2">
-                    <a href="#" class="text-dark">
-                        <img src="{{ url('/') }}/frontend/assets/images/products/jaringan_sistem.jpg" alt="" class="img-fluid mx-auto d-block">
-                        <div class="p-3 text-center">
-                            <h5 class="mb-0">{{ strtoupper('rumah menggunakan 2kw dari sistem tenaga surya grid di Sri Lanka') }}</h5>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <!-- end col -->
-            <div class="col-lg-4 col-md-6">
-                <div class="demo-box bg-white mt-4 p-2">
-                    <a href="#" class="text-dark">
-                        <img src="{{ url('/') }}/frontend/assets/images/products/proyek-3.jpg" alt="" class="img-fluid mx-auto d-block">
-                        <div class="p-3 text-center">
-                            <h5 class="mb-0">{{ strtoupper('rumah menggunakan 2kw dari sistem tenaga surya grid di Sri Lanka') }}</h5>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <!-- end col -->
-            <div class="col-lg-4 col-md-6">
-                <div class="demo-box bg-white mt-4 p-2">
-                    <a href="#" class="text-dark">
-                        <img src="{{ url('/') }}/frontend/assets/images/products/proyek-5.jpg" alt="" class="img-fluid mx-auto d-block">
-                        <div class="p-3 text-center">
-                            <h5 class="mb-0">{{ strtoupper('rumah menggunakan 2kw dari sistem tenaga surya grid di Sri Lanka') }}</h5>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <!-- end col -->
-            <div class="col-lg-4 col-md-6">
-                <div class="demo-box bg-white mt-4 p-2">
-                    <a href="#" class="text-dark">
-                        <img src="{{ url('/') }}/frontend/assets/images/products/proyek-4.jpg" alt="" class="img-fluid mx-auto d-block">
-                        <div class="p-3 text-center">
-                            <h5 class="mb-0">{{ strtoupper('rumah menggunakan 2kw dari sistem tenaga surya grid di Sri Lanka') }}</h5>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <!-- end col -->
-            <div class="col-lg-4 col-md-6">
-                <div class="demo-box bg-white mt-4 p-2">
-                    <a href="#" class="text-dark">
-                        <img src="{{ url('/') }}/frontend/assets/images/products/proyek-6.jpg" alt="" class="img-fluid mx-auto d-block">
-                        <div class="p-3 text-center">
-                            <h5 class="mb-0">{{ strtoupper('rumah menggunakan 2kw dari sistem tenaga surya grid di Sri Lanka') }}</h5>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <!-- end col -->
+            {{-- @foreach ($proyeks as $proyek)
+
+            @endforeach --}}
         </div>
         <!-- end row -->
     </div>

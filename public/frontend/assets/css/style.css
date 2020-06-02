@@ -679,6 +679,8 @@ p {
 .about-section {
     background: url('/frontend/assets/images/background/about-bg.jpg');
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom;
 }
 
 h4.widget-title::after {
@@ -736,4 +738,12 @@ h4.widget-title {
     height: 600px;
     width: 100%;
     object-fit: fill;
+}
+
+.image-slider {
+    object-fit: fill;
+}
+
+.mt-100 {
+    margin-top: 100px;
 }

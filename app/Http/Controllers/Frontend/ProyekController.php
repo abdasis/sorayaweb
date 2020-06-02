@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Proyek;
 use Illuminate\Http\Request;
 
 class ProyekController extends Controller
@@ -14,7 +15,8 @@ class ProyekController extends Controller
      */
     public function index()
     {
-        return view('frontend.pages.proyek.proyek');
+        $proyeks = Proyek::all();
+        return view('frontend.pages.proyek.proyek')->withProyeks($proyeks);
     }
 
 

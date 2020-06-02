@@ -19,7 +19,7 @@
                     <a href="{{ route('produk.index') }}" class="nav-link">Produk</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#demo" class="nav-link">Proyek</a>
+                    <a href="{{ route('proyek.index') }}" class="nav-link">Proyek</a>
                 </li>
                 <li class="nav-item">
                     <a href="#pricing" class="nav-link">Berita</a>
