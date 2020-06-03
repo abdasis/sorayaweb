@@ -153,13 +153,10 @@
 
 @section('js')
 <script src="{{ url('/') }}/backend/assets/summernote/summernote-bs4.js"></script>
-<script src="https://cdn.ckeditor.com/ckeditor5/19.1.1/classic/ckeditor.js"></script><script>
-    import SimpleUploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/simpleuploadadapter';
-
+<script src="https://cdn.ckeditor.com/ckeditor5/19.1.1/classic/ckeditor.js"></script>
+<script>
     ClassicEditor
-    .create( document.querySelector( '#deskripsi_produk' ), {
-        plugins: [ SimpleUploadAdapter],
-    } )
+    .create( document.querySelector( '#deskripsi_produk' ) )
     .then( editor => {
         console.log( editor );
     } )

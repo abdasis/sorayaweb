@@ -127,7 +127,7 @@
             <div class="col-md-4">
                 <div class="card-box product-box shadow">
                     <a href="{{ route('produk.show', $product->id) }}">
-                        <img src="{{ url('/') }}/frontend/assets/images/products/produk-1.jpg"  alt="{{ $product->nama_produk }}" class="img-fluid align-content-center">
+                        <img src="{{ url('/') }}/gambar-produk/{{ $product->thumbnail }}"  alt="{{ $product->nama_produk }}" class="img-fluid align-content-center">
 
                     </a>
                     <div class="product-info">
@@ -171,7 +171,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="demo-box bg-white mt-4 p-2">
                     <a href="{{ route('proyek.show', 1) }}" class="text-dark">
-                        <img src="{{ url('/') }}/frontend/assets/images/proyek/proyek-1.png" alt="" class="img-fluid mx-auto d-block">
+                        <img src="{{ url('/') }}/gambar-produk/{{ $product->thumbnail }}" alt="" class="img-fluid mx-auto d-block">
                         <div class="p-3 text-center">
                             <h5 class="mb-0">{{ strtoupper('rumah menggunakan 2kw dari sistem tenaga surya grid di Sri Lanka') }}</h5>
                         </div>
