@@ -21,6 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('produk', 'Frontend\ProductController');
 Route::resource('contact-us', 'Frontend\ContactController');
 Route::resource('proyek', 'Frontend\ProyekController');
+Route::get('about-us', 'Frontend\PageController@aboutUs')->name('aboutus');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('/product', 'Backend\ProductController');

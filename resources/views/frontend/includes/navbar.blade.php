@@ -25,7 +25,7 @@
                     <a href="#pricing" class="nav-link">Berita</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#faq" class="nav-link">Tentang Kami</a>
+                    <a href="{{ route('aboutus') }}" class="nav-link">Tentang Kami</a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('contact-us.index') }}" class="nav-link">Hubungan Kami</a>
