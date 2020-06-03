@@ -155,7 +155,7 @@
 
 <!-- features start -->
 <section class="section">
-    <div class="container-fluid">
+    {{-- <div class="container-fluid">
 
         <div class="row justify-content-center">
             <div class="col-lg-6">
@@ -164,10 +164,10 @@
                     <p class="text-muted">The clean and well commented code allows easy customization of the theme.It's designed for describing your app, agency or business.</p>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- end row -->
 
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-lg-4 col-md-6">
                 <div class="demo-box bg-white mt-4 p-2">
                     <a href="{{ route('proyek.show', 1) }}" class="text-dark">
@@ -177,7 +177,7 @@
                         </div>
                     </a>
                 </div>
-            </div>
+            </div> --}}
             {{-- @foreach ($proyeks as $proyek)
 
             @endforeach --}}
