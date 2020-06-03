@@ -63,7 +63,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <img src="{{ url('/') }}/frontend/assets/images/products/panel_surya_big.jpg" alt="" class="img-responsive img-fluid">
+                                    <img src="{{ url('/') }}/gambar-produk/{{ $product->thumbnail }}" alt="" class="img-responsive img-fluid">
                                 </div>
                                 <div class="col-md-6 py-3">
                                     <div class="product-spec">

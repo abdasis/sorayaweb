@@ -139,6 +139,19 @@
                                 </select>
                             </div>
 
+                            <div class="form-group">
+                                    <label>Pilih thumbnail</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input name="thumbnail" type="file" class="custom-file-input" id="inputGroupFile04">
+                                            <label class="custom-file-label" for="inputGroupFile04">Pilih gambar</label>
+                                        </div>
+                                    </div>
+                                    @if ($errors->first('gambar_slider'))
+                                        <small class="text-danger">Gambar slider harus diisi</small>
+                                    @endif
+                                </div>
+
 
                             <button type="submit" class="btn btn-primary btn-block"> <i class="fa fa-save mr-1"></i> Simpan Produk</button>
                         </div>

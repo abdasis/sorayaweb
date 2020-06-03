@@ -27,6 +27,7 @@ class CreateProductsTable extends Migration
             $table->string('tag', 100);
             $table->string('category', 100);
             $table->string('status', 100);
+            $table->string('thumbnail', 255);
             $table->string('create_by', 100);
             $table->timestamps();
         });

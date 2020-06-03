@@ -68,6 +68,8 @@ class ProductController extends Controller
             }
 
 
+
+
             $diskripsiProduct = $dom->savehtml();
             $newProduct = new Product();
             $newProduct->nama_produk = $request->get('nama_produk');
@@ -83,6 +85,12 @@ class ProductController extends Controller
             $newProduct->category = $request->get('kategori');
             $newProduct->status = $request->get('status');
             $newProduct->create_by = Auth::user()->name;
+            if ($request->hasFile('thumbnail')) {
+                $thumbnail = $request->file('thumbnail');
+                $thumbnail_name = Str::slug($request->get('nama_produk'), '-') . '-' . $thumbnail->getClientOriginalName();
+                $thumbnail->move('gambar-produk', $thumbnail_name);
+                $newProduct->thumbnail = $thumbnail_name;
+            }
 
             $newProduct->save();
             DB::commit();
