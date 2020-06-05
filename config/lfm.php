@@ -16,7 +16,8 @@ return [
      */
 
     'use_package_routes'       => true,
-    'middlewares' => ['web'],
+
+    'middlewares' => ['auth'],
 
     /*
     |--------------------------------------------------------------------------

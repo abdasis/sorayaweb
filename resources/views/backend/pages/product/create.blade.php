@@ -39,7 +39,7 @@
 
                                 <div class="form-group">
                                     <label for="diskripsi_produk">Diskripsi Produk</label>
-                                    <textarea id="summernote" class="form-class" name="deskripsi_produk">{{ old('deskripsi_produk') }}</textarea>
+                                    <textarea id="editor" class="form-class" name="deskripsi_produk">{{ old('deskripsi_produk') }}</textarea>
                                 </div>
 
                                 <div class="form-group">
@@ -163,26 +163,39 @@
 @endsection
 
 
+
 @section('js')
-<script src="{{ url('/') }}/backend/assets/summernote/summernote-bs4.js"></script>
+<script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
 <script>
-    $(document).ready(function() {
-        $('#summernote').summernote({
-            toolbar: [
-                ['style', ['style']],
-                ['font', ['bold', 'underline', 'clear']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['table', ['table']],
-                ['insert', ['link', 'picture', 'video']],
-                ['view', ['fullscreen', 'codeview', 'help']]
+    CKEDITOR
+        .replace('editor', {
+            filebrowserUploadUrl: "{{route('image.upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form',
+            toolbarGroups: [
+                { name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
+                { name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
+                { name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
+                { name: 'forms', groups: [ 'forms' ] },
+                { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+                { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
+                { name: 'links', groups: [ 'links' ] },
+                { name: 'insert', groups: [ 'insert' ] },
+                { name: 'styles', groups: [ 'styles' ] },
+                { name: 'colors', groups: [ 'colors' ] },
+                { name: 'tools', groups: [ 'tools' ] },
+                { name: 'others', groups: [ 'others' ] },
+                { name: 'about', groups: [ 'about' ] }
             ],
-            height: 300
-        });
-    });
+            removeButtons: 'Cut,Copy,Paste,PasteText,PasteFromWord,Undo,Redo,Source,Save,Templates,NewPage,Preview,Print,Find,Replace,SelectAll,Scayt,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,BidiLtr,BidiRtl,Language,Flash,Smiley,SpecialChar,PageBreak,Iframe,TextColor,BGColor,ShowBlocks,Outdent,Indent,HorizontalRule,Styles,Format,Font,FontSize',
+            filebrowserWindowWidth: '640',
+         filebrowserWindowHeight: '480'
+
+        })
+
+
+
 </script>
 @endsection
 
 @section('css')
-<link rel="stylesheet" href="{{ url('/') }}/backend/assets/summernote/summernote-bs4.css">
 @endsection

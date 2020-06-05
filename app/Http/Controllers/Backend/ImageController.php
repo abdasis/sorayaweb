@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ProyekController extends Controller
+class ImageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,7 +24,7 @@ class ProyekController extends Controller
      */
     public function create()
     {
-        return view('backend.pages.project.create');
+        //
     }
 
     /**
@@ -81,5 +81,28 @@ class ProyekController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function upload(Request $request)
+    {
+        if ($request->hasFile('upload')) {
+            $file = $request->file('upload'); //SIMPAN SEMENTARA FILENYA KE VARIABLE
+            $fileName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME); //KITA GET ORIGINAL NAME-NYA
+            //KEMUDIAN GENERATE NAMA YANG BARU KOMBINASI NAMA FILE + TIME
+            $fileName = $fileName . '_' . time() . '.' . $file->getClientOriginalExtension();
+
+            $file->move(public_path('uploads'), $fileName); //SIMPAN KE DALAM FOLDER PUBLIC/UPLOADS
+
+            //KEMUDIAN KITA BUAT RESPONSE KE CKEDITOR
+            $ckeditor = $request->input('CKEditorFuncNum');
+            $url = asset('uploads/' . $fileName);
+            $msg = 'Image uploaded successfully';
+            //DENGNA MENGIRIMKAN INFORMASI URL FILE DAN MESSAGE
+            $response = "<script>window.parent.CKEDITOR.tools.callFunction($ckeditor, '$url', '$msg')</script>";
+
+            //SET HEADERNYA
+            @header('Content-type: text/html; charset=utf-8');
+            return $response;
+        }
     }
 }

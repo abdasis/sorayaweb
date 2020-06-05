@@ -27,4 +27,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('/product', 'Backend\ProductController');
     Route::resource('/kategori', 'Backend\CategoryController');
     Route::resource('/slider', 'Backend\SliderController');
+    Route::resource('/project', 'Backend\ProyekController');
+});
+
+Route::post('/images', 'Backend\ImageController@upload')->name('image.upload');
+Route::group(['prefix' => 'filemanager'], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
 });

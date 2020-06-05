@@ -65,7 +65,7 @@
                     <div class="collapse" id="sidebarProyek">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="#">Tambah Proyek</a>
+                                <a href="{{ route('project.create') }}">Tambah Proyek</a>
                             </li>
                             <li>
                                 <a href="#">Daftar Proyek</a>

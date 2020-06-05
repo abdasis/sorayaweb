@@ -45,35 +45,15 @@ class ProductController extends Controller
     {
         DB::beginTransaction();
         try {
-            $dom = new \domdocument();
-            $dom->loadHtml(
-                mb_convert_encoding($request->deskripsi_produk, 'HTML-ENTITIES', 'UTF-8'),
-                LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD
-            );
-            $images = $dom->getelementsbytagname('img');
-
-            foreach ($images as $k => $img) {
-                $data = $img->getattribute('src');
-                list($type, $data) = explode(';', $data);
-                list(, $data)      = explode(',', $data);
-
-                $data = base64_decode($data);
-
-                $image_name = time() . '-' . Str::slug($request->get('nama_produk'), '-') . $k . '.png';
-                $path =   public_path() . '/' . 'gambar-produk' . '/' . $image_name;
-
-                file_put_contents($path, $data);
-                $img->removeattribute('src');
-                $img->setattribute('src', url('/') . '/' . 'gambar-produk' . '/' . $image_name);
-            }
 
 
 
 
-            $diskripsiProduct = $dom->savehtml();
+
             $newProduct = new Product();
+
             $newProduct->nama_produk = $request->get('nama_produk');
-            $newProduct->diskripsi = $diskripsiProduct;
+            $newProduct->diskripsi = $request->deskripsi_produk;
             $newProduct->merk = $request->get('merk_produk');
             $newProduct->nomor_produk = $request->get('nomor_produk');
             $newProduct->tipe_produk = $request->get('tipe_produk');
@@ -136,35 +116,10 @@ class ProductController extends Controller
     {
         DB::beginTransaction();
         try {
-            $dom = new \domdocument();
-            $dom->loadHtml(
-                mb_convert_encoding($request->deskripsi_produk, 'HTML-ENTITIES', 'UTF-8'),
-                LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD
-            );
-            $images = $dom->getelementsbytagname('img');
 
-            foreach ($images as $k => $img) {
-                $data = $img->getattribute('src');
-                list($type, $data) = explode(';', $data);
-                list(, $data)      = explode(',', $data);
-
-                $data = base64_decode($data);
-
-                $image_name = time() . '-' . Str::slug($request->get('nama_produk'), '-') . $k . '.png';
-                $path =   public_path() . '/' . 'gambar-produk' . '/' . $image_name;
-                if ($path && file_exists($path)) {
-                    File::delete(public_path('gambar-produk') . '/' . $image_name);
-                }
-                file_put_contents($path, $data);
-                $img->removeattribute('src');
-                $img->setattribute('src', url('/') . '/' . 'gambar-produk' . '/' . $image_name);
-            }
-
-
-            $diskripsiProduct = $dom->savehtml();
             $newProduct = Product::find($id);
             $newProduct->nama_produk = $request->get('nama_produk');
-            $newProduct->diskripsi = $diskripsiProduct;
+            $newProduct->diskripsi = $request->deskripsi_produk;
             $newProduct->merk = $request->get('merk_produk');
             $newProduct->nomor_produk = $request->get('nomor_produk');
             $newProduct->tipe_produk = $request->get('tipe_produk');
