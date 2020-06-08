@@ -49,25 +49,28 @@
                 <div class="row">
                     @foreach ($products as $product)
                     <div class="col-md-4">
-                        <div class="card-box product-box shadow">
-                            <div class="bg-light">
-                                <img src="{{ url('/') }}/gambar-produk/{{ $product->thumbnail }}"  alt="product-pic" class="img-fluid">
+                        <div class="card product-box shadow">
+                            <div class="card-img-top">
+                                <a href="{{ route('produk.show', $product->id) }}">
+                                    <img src="{{ url('/') }}/gambar-produk/{{ $product->thumbnail }}"  alt="product-pic" class="img-fluid">
+                                </a>
                             </div>
-
-                            <div class="product-info">
-                                <div class="row align-items-center">
-                                    <div class="col">
-                                        <h5 class="font-15 mt-0 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">{{ $product->nama_produk }}</a> </h5>
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="product-price-tag">
-                                            <a href="{{ route('produk.show', $product->id) }}">
-                                                <button class="btn btn-soft-info btn-sm"><i class="mdi mdi-open-in-new"></i></button>
-                                            </a>
+                            <div class="card-body p-2">
+                                <div class="product-info">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <h5 class="font-13 mt-0 sp-line-1"><a href="{{ route('produk.show', $product->id) }}" class="text-dark">{{ $product->nama_produk }}</a> </h5>
                                         </div>
-                                    </div>
-                                </div> <!-- end row -->
-                            </div> <!-- end product info-->
+                                        <div class="col-auto">
+                                            <div class="product-price-tag">
+                                                <a href="{{ route('produk.show', $product->id) }}">
+                                                    <button class="btn btn-soft-info btn-sm"><i class="mdi mdi-open-in-new"></i></button>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div> <!-- end row -->
+                                </div> <!-- end product info-->
+                            </div>
                         </div> <!-- end card-box-->
                     </div>
                     @endforeach
