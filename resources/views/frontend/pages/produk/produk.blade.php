@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container-fluid">
-    <div class="row section-breadcrumb">
+    <div class="row section-breadcrumb mt-100">
         <nav aria-label="breadcrumb ">
             <ol class="breadcrumb pl-2">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -11,7 +11,7 @@
             </ol>
         </nav>
     </div>
-    <div class="row" style="margin-top: 50px">
+    <div class="row">
         <div class="col-md-4">
             <div class="category-wrapper">
                 <div class="kategori-box">
@@ -65,7 +65,7 @@
                     <div class="col-md-4">
                         <div class="card-box product-box shadow">
                             <div class="bg-light">
-                                <img src="{{ url('/') }}/frontend/assets/images/products/produk-1.jpg"  alt="product-pic" class="img-fluid">
+                                <img src="{{ url('/') }}/gambar-produk/{{ $product->thumbnail }}"  alt="product-pic" class="img-fluid">
                             </div>
 
                             <div class="product-info">

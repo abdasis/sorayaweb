@@ -2,12 +2,12 @@
 
 @section('content')
     <div class="container-fluid">
-        <div class="row section-breadcrumb">
-            <nav aria-label="breadcrumb ">
-                <ol class="breadcrumb pl-2">
+        <div class="row section-breadcrumb  mt-100">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Library</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Data</li>
+                    <li class="breadcrumb-item"><a href="#">Data Siswa</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Input Data Siswa</li>
                 </ol>
             </nav>
         </div>
