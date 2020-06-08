@@ -5,9 +5,9 @@
         <div class="row section-breadcrumb  mt-100">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Data Siswa</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Input Data Siswa</li>
+                    <li class="breadcrumb-item"><a href="{{ url('') }}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('produk.index') }}">Produk</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ $product->nama_produk }}</li>
                 </ol>
             </nav>
         </div>
@@ -39,21 +39,6 @@
                             </div>
                         </div>
 
-                        <div class="latest-product-widget bg-white shadow py-2 my-2">
-                            <div class="container">
-                                <h4 class="widget-title">
-                                    PRODUK TERBARU
-                                </h4>
-                            </div>
-                        </div>
-
-                        <div class="latest-news-widget bg-white shadow py-2 my-2">
-                            <div class="container">
-                                <h4 class="widget-title">
-                                    Berita Terbaru
-                                </h4>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
