@@ -17,7 +17,8 @@
                 </div>
             </div>
         </div>
-        <form action="{{ route('project.store') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('project.update', $project->id) }}" method="post" enctype="multipart/form-data">
+            @method('PUT')
             <div class="row">
                 <div class="col-md-8">
                     @if (Session::has('status'))
@@ -31,11 +32,11 @@
                             @csrf
                             <div class="form-group">
                                 <label for="title_proyek">Judul Proyek</label>
-                                <input type="text" name="title_proyek" value="{{ old('title_proyek') }}" class="form-control" placeholder="Masukan title proyek">
+                                <input type="text" name="title_proyek" value="{{ $project->title_proyek }}" class="form-control" placeholder="Masukan title proyek">
                             </div>
                             <div class="form-group">
                                 <label for="diskripsi_proyek">Diskripsi Proyek</label>
-                                <textarea id="editor" name="diskripsi_proyek" placeholder="Masukan Keterangan proyek">{{ old('diskripsi_proyek') }}</textarea>
+                                <textarea id="editor" name="diskripsi_proyek" placeholder="Masukan Keterangan proyek">{{ $project->diksripsi_proyek }}</textarea>
                             </div>
                         </div>
                     </div>
@@ -51,8 +52,8 @@
                                 <label for="inputState">Status</label>
                                 <select name="status" id="inputState" class="form-control">
                                     <option value="">Choose</option>
-                                    <option {{ old('status') == 'Draft' ? 'selected' : '' }}>Draft</option>
-                                    <option {{ old('status') == 'Publish' ? 'selected' : '' }}>Publish</option>
+                                    <option {{ $project->status == 'Draft' ? 'selected' : '' }}>Draft</option>
+                                    <option {{ $project->status == 'Publish' ? 'selected' : '' }}>Publish</option>
                                 </select>
                                 @if ($errors->first('status'))
                                     <small class="text-danger">Harus memilih salah satu</small>

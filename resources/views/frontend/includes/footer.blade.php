@@ -1,62 +1,41 @@
+@php
+    $recentproduk = App\Models\Product::paginate(5);
+@endphp
+
 <footer class="bg-dark footer ">
     <div class="container-fluid">
         <div class="row mb-5">
-            <div class="col-lg-4">
+            <div class="col-lg-6">
                 <div class="pr-lg-4">
                     <div class="mb-4">
-                        <img src="{{ url('/') }}/frontend/assets/images/logo-light.png" alt="" height="20">
+                        <img src="{{ url('/') }}/frontend/assets/images/ar-logo.png" alt="" height="30">
                     </div>
-                    <p class="text-white-50">Soraya Web Company </p>
-                    <p class="text-white-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure sunt hic iusto quis, ipsum obcaecati possimus, aperiam nobis expedita aliquam.</p>
+                    <p class="text-white-50">AR-Solarwindenergy </p>
+                    <p class="text-white-50">Sebuah perusahaan yang ikut berpartisipasi dalam memberikan solusi energi terbaru yang dikenal dengan Energi Tenaga Surya. Tidak hanya bergerak sebagai distributor, tetapi juga merupakan perusahaan yang melakukan EPC (Engineering, Procurement, & Construction).</p>
                 </div>
             </div>
 
-            <div class="col-lg-2">
+            <div class="col-lg-3">
                 <div class="footer-list">
-                    <p class="text-white mb-2 footer-list-title">About</p>
+                    <p class="text-white mb-2 footer-list-title">Produk Terbaru</p>
                     <ul class="list-unstyled">
-                        <li><a href="#"><i class="mdi mdi-chevron-right mr-2"></i>Home</a></li>
-                        <li><a href="#"><i class="mdi mdi-chevron-right mr-2"></i>Features</a></li>
-                        <li><a href="#"><i class="mdi mdi-chevron-right mr-2"></i>Faq</a></li>
-                        <li><a href="#"><i class="mdi mdi-chevron-right mr-2"></i>Clients</a></li>
+                        @foreach ($recentproduk as $produk)
+                        <li><a href="{{ route('produk.show', $produk->id) }}"><i class="mdi mdi-chevron-right mr-2"></i>{{ $produk->nama_produk  }}</a></li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
 
-            <div class="col-lg-2">
+            <div class="col-lg-3">
                 <div class="footer-list">
-                    <p class="text-white mb-2 footer-list-title">Social</p>
+                    <p class="text-white mb-2 footer-list-title">Alamat</p>
                     <ul class="list-unstyled">
-                        <li><a href="#"><i class="mdi mdi-chevron-right mr-2"></i>Facebook </a></li>
-                        <li><a href="#"><i class="mdi mdi-chevron-right mr-2"></i>Twitter</a></li>
-                        <li><a href="#"><i class="mdi mdi-chevron-right mr-2"></i>Behance</a></li>
-                        <li><a href="#"><i class="mdi mdi-chevron-right mr-2"></i>Dribble</a></li>
+                        <li><a href="{{ route('produk.show', $produk->id) }}"><i class="mdi mdi-chevron-right mr-2"></i></a></li>
                     </ul>
                 </div>
             </div>
 
-            <div class="col-lg-2">
-                <div class="footer-list">
-                    <p class="text-white mb-2 footer-list-title">Support</p>
-                    <ul class="list-unstyled">
-                        <li><a href="#"><i class="mdi mdi-chevron-right mr-2"></i>Help & Support</a></li>
-                        <li><a href="#"><i class="mdi mdi-chevron-right mr-2"></i>Privacy Policy</a></li>
-                        <li><a href="#"><i class="mdi mdi-chevron-right mr-2"></i>Terms & Conditions</a></li>
-                    </ul>
-                </div>
-            </div>
 
-            <div class="col-lg-2">
-                <div class="footer-list">
-                    <p class="text-white mb-2 footer-list-title">More Info</p>
-                    <ul class="list-unstyled">
-                        <li><a href="#"><i class="mdi mdi-chevron-right mr-2"></i>Pricing</a></li>
-                        <li><a href="#"><i class="mdi mdi-chevron-right mr-2"></i>For Marketing</a></li>
-                        <li><a href="#"><i class="mdi mdi-chevron-right mr-2"></i>For Agencies</a></li>
-                        <li><a href="#"><i class="mdi mdi-chevron-right mr-2"></i>Our Apps</a></li>
-                    </ul>
-                </div>
-            </div>
         </div>
         <!-- end row -->
 

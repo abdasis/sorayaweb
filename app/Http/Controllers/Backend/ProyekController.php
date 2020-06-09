@@ -3,7 +3,12 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProyekRequest;
+use App\Models\Proyek;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class ProyekController extends Controller
 {
@@ -14,7 +19,8 @@ class ProyekController extends Controller
      */
     public function index()
     {
-        //
+        $proyek = Proyek::all();
+        return view('backend.pages.project.index')->withProjects($proyek);
     }
 
     /**
@@ -33,9 +39,21 @@ class ProyekController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProyekRequest $request)
     {
-        //
+        $newProyek = new Proyek();
+        $newProyek->title_proyek = $request->get('title_proyek');
+        $newProyek->diksripsi_proyek = $request->get('diskripsi_proyek');
+        $newProyek->status = $request->get('status');
+        $newProyek->created_by = Auth::user()->name;
+        if ($request->hasFile('thumbnail_proyek')) {
+            $thumbnail = $request->file('thumbnail_proyek');
+            $thumbnail_name = date('dmsyh') . '-' . Str::slug($request->get('title_proyek'), '-') . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move('gambar-proyek', $thumbnail_name);
+            $newProyek->thumbnail_proyek = $thumbnail_name;
+        }
+        $newProyek->save();
+        return redirect()->back()->withStatus('Data proyek terbaru berhasil disimpan');
     }
 
     /**
@@ -57,7 +75,8 @@ class ProyekController extends Controller
      */
     public function edit($id)
     {
-        //
+        $proyek = Proyek::find($id);
+        return view('backend.pages.project.edit')->withProject($proyek);
     }
 
     /**
@@ -67,9 +86,26 @@ class ProyekController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProyekRequest $request, $id)
     {
-        //
+        $proyek = Proyek::find($id);
+        $proyek->title_proyek = $request->get('title_proyek');
+        $proyek->diksripsi_proyek = $request->get('diskripsi_proyek');
+        $proyek->status = $request->get('status');
+        $proyek->created_by = Auth::user()->name;
+        if ($request->hasFile('thumbnail_proyek')) {
+            if ($proyek->thumbnail && file_exists(public_path('gambar-proyek/') . $proyek->thumbnail_proyek)) {
+                File::delete(public_path('gambar-proyek/' . $proyek->thumbnail_proyek));
+            }
+            $thumbnail = $request->file('thumbnail_proyek');
+            $thumbnail_name = date('dmsyh') . '-' . Str::slug($request->get('title_proyek'), '-') . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move('gambar-proyek', $thumbnail_name);
+            $proyek->thumbnail_proyek = $thumbnail_name;
+        } else {
+            $proyek->thumbnail_proyek = $proyek->thumbnail_proyek;
+        }
+        $proyek->save();
+        return redirect()->route('product.index')->withStatus('Data proyek terbaru berhasil disimpan');
     }
 
     /**

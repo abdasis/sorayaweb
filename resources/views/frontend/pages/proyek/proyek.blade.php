@@ -2,16 +2,15 @@
 
 @section('content')
     <div class="container-fluid">
-        <div class="row section-breadcrumb">
+        <div class="row section-breadcrumb mt-100">
             <nav aria-label="breadcrumb ">
                 <ol class="breadcrumb pl-2">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Library</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Data</li>
+                    <li class="breadcrumb-item"><a href="{{ url('/') }}">Beranda</a></li>
+                    <li class="breadcrumb-item active" aria-current="{{ route('proyek.index') }}">Daftar Project</li>
                 </ol>
             </nav>
         </div>
-        <div class="project-wrapper my-4">
+        <div class="project-wrapper">
             <div class="row">
                 <div class="col-md-3">
                     <div class="demo-box bg-white mt-4 p-2">
