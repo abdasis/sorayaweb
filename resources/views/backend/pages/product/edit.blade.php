@@ -40,7 +40,7 @@
 
                                 <div class="form-group">
                                     <label for="diskripsi_produk">Diskripsi Produk</label>
-                                    <textarea id="editor" class="form-class" name="deskripsi_produk">{{ $produk->deskripsi_produk }}</textarea>
+                                    <textarea id="editor" class="form-class" name="deskripsi_produk">{{ $produk->diskripsi }}</textarea>
                                 </div>
 
                                 <div class="form-group">
