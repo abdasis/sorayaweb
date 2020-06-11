@@ -170,7 +170,8 @@
 <script>
     CKEDITOR
         .replace('editor', {
-            filebrowserUploadUrl: "{{route('image.upload', ['_token' => csrf_token() ])}}",
+            filebrowserImageBrowseUrl: '/filemanager?type=Images',
+            filebrowserUploadUrl: '{{ route("image.upload", ["_token" => csrf_token()]) }}',
             filebrowserUploadMethod: 'form',
             toolbarGroups: [
                 { name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
