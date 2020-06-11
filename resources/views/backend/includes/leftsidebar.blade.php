@@ -122,10 +122,10 @@
                     <div class="collapse" id="sidebarBerita">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="#">Tambah Berita</a>
+                                <a href="{{ route('admin.berita.create') }}">Tambah Berita</a>
                             </li>
                             <li>
-                                <a href="#">Daftar Produk</a>
+                                <a href="{{ route('admin.berita.index') }}">Daftar Produk</a>
                             </li>
                         </ul>
                     </div>

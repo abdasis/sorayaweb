@@ -18,7 +18,7 @@
     <div class="row">
         <div class="col-12">
             @if (Session::has('status'))
-                <div class="alert alert-success">{{ Session::get('status') }}</div>
+                <div class="alert alert-success">{{ Session::get('status') }} </div>
             @endif
             <div class="card">
                 <div class="card-body">
@@ -42,10 +42,10 @@
                             @foreach ($products as $key => $product)
                             <tr>
                                 <td>{{ $product->nama_produk }}</td>
-                                <td>{{ $product->merk }}</td>
-                                <td>{{ $product->nomor_produk }}</td>
-                                <td>{{ $product->max_power }}</td>
-                                <td>{{ $product->warrant }} Tahun</td>
+                                <td>{{ $product->merk == '' ? '-' : $product->merk }}</td>
+                                <td>{{ $product->nomor_produk == '' ? '-' : $product->nomor_produk }}</td>
+                                <td>{{ $product->max_power == '' ? '-' : $product->max_power }}</td>
+                                <td>{{ $product->warrant == '' ? '-' : $product->warrant . ' Tahun' }}</td>
                                 <td>
                                     <div class="row">
                                         <a href="{{ route('product.edit', $product->id) }}">

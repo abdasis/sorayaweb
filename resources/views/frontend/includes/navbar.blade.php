@@ -21,7 +21,7 @@
                     <a href="{{ route('proyek.index') }}" class="nav-link">Proyek</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#pricing" class="nav-link">Berita</a>
+                    <a href="{{ route('berita') }}" class="nav-link">Berita</a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('aboutus') }}" class="nav-link">Tentang Kami</a>

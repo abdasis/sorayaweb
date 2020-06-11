@@ -127,20 +127,21 @@
                             Related Product
                         </h4>
                         <div class="row">
+                            @foreach ($related as $relatedProduct)
                             <div class="col-md-4">
                                 <div class="card-box product-box">
                                     <div class="bg-light">
-                                        <img src="{{ url('/') }}/frontend/assets/images/products/produk-1.jpg"  alt="product-pic" class="img-fluid">
+                                        <img src="{{ url('/') }}/gambar-produk/{{ $relatedProduct->thumbnail }}"  alt="product-pic" class="img-fluid">
                                     </div>
 
                                     <div class="product-info">
                                         <div class="row align-items-center">
                                             <div class="col">
-                                                <h5 class="font-15 mt-0 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">3kw dari sistem tenaga surya grid untuk digunakan di rumah</a> </h5>
+                                                <h5 class="font-15 mt-0 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">{{ $relatedProduct->nama_produk }}</a> </h5>
                                             </div>
                                             <div class="col-auto">
                                                 <div class="product-price-tag">
-                                                    <a href="{{ route('produk.show', ['produk-1']) }}">
+                                                    <a href="{{ route('produk.show', $relatedProduct->id) }}">
                                                         <button class="btn btn-soft-info btn-sm"><i class="mdi mdi-open-in-new"></i></button>
                                                     </a>
                                                 </div>
@@ -149,51 +150,7 @@
                                     </div> <!-- end product info-->
                                 </div> <!-- end card-box-->
                             </div> <!-- end col-->
-
-                            <div class="col-md-4">
-                                <div class="card-box product-box shadow-sm">
-                                    <div class="bg-light">
-                                        <img src="{{ url('/') }}/frontend/assets/images/products/produk-2.jpg"  alt="product-pic" class="img-fluid">
-                                    </div>
-
-                                    <div class="product-info">
-                                        <div class="row align-items-center">
-                                            <div class="col">
-                                                <h5 class="font-15 mt-0 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">dari grid sistem tenaga surya 1kw</a> </h5>
-                                            </div>
-                                            <div class="col-auto">
-                                                <div class="product-price-tag">
-                                                    <button class="btn btn-soft-info btn-sm"><i class="mdi mdi-open-in-new"></i></button>
-
-                                                </div>
-                                            </div>
-                                        </div> <!-- end row -->
-                                    </div> <!-- end product info-->
-                                </div> <!-- end card-box-->
-                            </div> <!-- end col-->
-
-                            <div class="col-md-4">
-                                <div class="card-box product-box shadow-sm">
-                                    <div class="bg-light">
-                                        <img src="{{ url('/') }}/frontend/assets/images/products/produk-3.jpg"  alt="product-pic" class="img-fluid">
-                                    </div>
-
-                                    <div class="product-info">
-                                        <div class="row align-items-center">
-                                            <div class="col">
-                                                <h5 class="font-15 mt-0 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">panel surya monocrystalline seri 72 sel</a> </h5>
-                                            </div>
-                                            <div class="col-auto">
-                                                <div class="product-price-tag">
-                                                    <button class="btn btn-soft-info btn-sm"><i class="mdi mdi-open-in-new"></i></button>
-
-                                                </div>
-                                            </div>
-                                        </div> <!-- end row -->
-                                    </div> <!-- end product info-->
-                                </div> <!-- end card-box-->
-                            </div> <!-- end col-->
-
+                            @endforeach
                         </div>
                     </div>
                 </div>

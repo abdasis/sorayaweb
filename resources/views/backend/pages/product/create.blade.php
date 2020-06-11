@@ -21,7 +21,7 @@
             <div class="row">
                 <div class="col-md-8">
                     @if (Session::has('status'))
-                        <div class="alert alert-success">{{ Session::get('status') }}</div>
+                        <div class="alert alert-success">{{ Session::get('status') }} - <a class="text-success" href="{{ route('product.index') }}"><b>Kembali</b></a></div>
                     @endif
                     <div class="card">
                         <div class="card-header">
@@ -48,7 +48,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-award"></i></span>
                                         </div>
-                                        <input type="text" class="form-control" placeholder="Masukan Merk" name="merk_produk" aria-describedby="basic-addon1" value="{{ old('merk_produk') }}" required>
+                                        <input type="text" class="form-control" placeholder="Masukan Merk" name="merk_produk" aria-describedby="basic-addon1" value="{{ old('merk_produk') }}">
                                     </div>
                                 </div>
 
@@ -59,7 +59,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-list-ol"></i></span>
                                         </div>
-                                        <input required value="{{ old('nomor_produk') }}" type="text" class="form-control" name="nomor_produk" placeholder="Masukan Nomor Produk">
+                                        <input value="{{ old('nomor_produk') }}" type="text" class="form-control" name="nomor_produk" placeholder="Masukan Nomor Produk">
                                     </div>
                                 </div>
 
@@ -69,7 +69,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-layer-group"></i></span>
                                         </div>
-                                        <input value="{{ old('tipe_produk') }}" required type="text" class="form-control" name="tipe_produk" data-role="tagsinput" placeholder="Masukan Type">
+                                        <input value="{{ old('tipe_produk') }}" type="text" class="form-control" name="tipe_produk" data-role="tagsinput" placeholder="Masukan Type">
                                     </div>
                                 </div>
 
@@ -79,7 +79,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-bolt"></i></span>
                                         </div>
-                                        <input required  value="{{ old('max_power') }}" type="text" class="form-control" name="max_power" placeholder="Masukan Max Power">
+                                        <input  value="{{ old('max_power') }}" type="text" class="form-control" name="max_power" placeholder="Masukan Max Power">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -88,7 +88,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1"><i class=" fas fa-certificate"></i></span>
                                         </div>
-                                        <input required value="{{ old('certificate') }}" type="text" class="form-control" name="certificate" placeholder="Masukan Certificate">
+                                        <input value="{{ old('certificate') }}" type="text" class="form-control" name="certificate" placeholder="Masukan Certificate">
                                     </div>
                                 </div>
 
@@ -98,7 +98,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-money-check-alt"></i></span>
                                         </div>
-                                        <input required value="{{ old('payment') }}" type="text" class="form-control" name="payment" placeholder="Masukan Certificate">
+                                        <input value="{{ old('payment') }}" type="text" class="form-control" name="payment" placeholder="Masukan Certificate">
                                     </div>
                                 </div>
 
@@ -108,7 +108,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-undo-alt"></i></span>
                                         </div>
-                                        <input required value="{{ old('warrant') }}" type="text" class="form-control" name="warrant" placeholder="Masukan Certificate">
+                                        <input value="{{ old('warrant') }}" type="text" class="form-control" name="warrant" placeholder="Masukan Certificate">
                                     </div>
                                 </div>
                         </div>
@@ -133,9 +133,10 @@
                             <div class="form-group">
                                 <label for="inputState">Kategori</label>
                                 <select name="kategori" id="inputState" class="form-control">
-                                    <option value="">Choose</option>
-                                    <option>Kategori Satu</option>
-                                    <option>Kategori Dua</option>
+                                    <option value="">Pilih Kategori</option>
+                                    @foreach ($categories as $category)
+                                        <option {{ old('kategori') == $category->nama_kategori ? 'selected' : '' }} >{{ $category->nama_kategori }}</option>
+                                    @endforeach
                                 </select>
                             </div>
 

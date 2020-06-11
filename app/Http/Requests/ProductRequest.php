@@ -25,13 +25,6 @@ class ProductRequest extends FormRequest
     {
         return [
             'nama_produk' => 'required|min:5',
-            'merk_produk' => 'required',
-            'nomor_produk' => 'required',
-            'tipe_produk' => 'required',
-            'max_power' => 'required',
-            'certificate' => 'required',
-            'payment' => 'required',
-            'warrant' => 'required',
             'status' => 'required'
         ];
     }

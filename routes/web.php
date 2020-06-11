@@ -22,12 +22,14 @@ Route::resource('produk', 'Frontend\ProductController');
 Route::resource('contact-us', 'Frontend\ContactController');
 Route::resource('proyek', 'Frontend\ProyekController');
 Route::get('about-us', 'Frontend\PageController@aboutUs')->name('aboutus');
+Route::get('berita', 'Frontend\PageController@berita')->name('berita');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('/product', 'Backend\ProductController');
     Route::resource('/kategori', 'Backend\CategoryController');
     Route::resource('/slider', 'Backend\SliderController');
     Route::resource('/project', 'Backend\ProyekController');
+    Route::resource('/berita', 'Backend\BeritaController', ['as' => 'admin']);
 });
 
 Route::post('/images', 'Backend\ImageController@upload')->name('image.upload');

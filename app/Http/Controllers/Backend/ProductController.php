@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -32,7 +33,10 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('backend.pages.product.create');
+        $category = Category::all();
+        return view('backend.pages.product.create')->with([
+            'categories' => $category
+        ]);
     }
 
     /**
@@ -49,9 +53,7 @@ class ProductController extends Controller
 
 
 
-
             $newProduct = new Product();
-
             $newProduct->nama_produk = $request->get('nama_produk');
             $newProduct->diskripsi = $request->deskripsi_produk;
             $newProduct->merk = $request->get('merk_produk');
@@ -70,8 +72,9 @@ class ProductController extends Controller
                 $thumbnail_name = Str::slug($request->get('nama_produk'), '-') . '-' . $thumbnail->getClientOriginalName();
                 $thumbnail->move('gambar-produk', $thumbnail_name);
                 $newProduct->thumbnail = $thumbnail_name;
+            } else {
+                $newProduct->thumbnail = 'defaul-product-thumbnail.png';
             }
-
             $newProduct->save();
             DB::commit();
             return redirect()->back()->with(['status' => 'Produk Berhasil Disimpan!']);
@@ -102,7 +105,8 @@ class ProductController extends Controller
     public function edit($id)
     {
         $produk = Product::find($id);
-        return view('backend.pages.product.edit')->withProduk($produk);
+        $categories = Category::all();
+        return view('backend.pages.product.edit')->withProduk($produk)->withCategories($categories);
     }
 
     /**
@@ -131,8 +135,19 @@ class ProductController extends Controller
             $newProduct->category = $request->get('kategori') == '' ? 'Tidak berkategori' : $request->get('kategori');
             $newProduct->status = $request->get('status');
             $newProduct->create_by = Auth::user()->name;
-
+            if ($request->hasFile('thumbnail')) {
+                if ($newProduct->thumbnail && file_exists(public_path() . 'gambar-produk/' . $newProduct->thumbnail)) {
+                    File::delete(public_path() . 'gambar-produk/' . $newProduct->thumbnail);
+                }
+                $thumbnail = $request->file('thumbnail');
+                $thumbnail_name = Str::slug($request->get('nama_produk'), '-') . '-' . $thumbnail->getClientOriginalName();
+                $thumbnail->move('gambar-produk', $thumbnail_name);
+                $newProduct->thumbnail = $thumbnail_name;
+            } else {
+                $newProduct->thumbnail = 'produk-thumbnail-default.png';
+            }
             $newProduct->save();
+
             DB::commit();
             return redirect()->back()->with(['status' => 'Produk Berhasil Disimpan!']);
         } catch (\Throwable $th) {

@@ -22,18 +22,12 @@
                             </h4>
                             <div class="inner-category">
                                 <ul class="nav navbar-nav flex-column ml-0 pl-0">
+                                    @foreach ($categories as $category)
                                     <li class="nav-item">
-                                      <a class="nav-link active" href="#">Panel Surya</a>
-                                    </li>
-                                    <li class="nav-item">
-                                      <a class="nav-link" href="#">Tata Surya</a>
-                                    </li>
-                                    <li class="nav-item">
-                                      <a class="nav-link" href="#">Solar Inverter</a>
-                                    </li>
-                                    <li class="nav-item">
-                                      <a class="nav-link" href="#">Dukungan yang meningkat</a>
-                                    </li>
+                                        <a class="nav-link active" href="#">{{ $category->nama_kategori }}</a>
+                                      </li>
+                                    @endforeach
+
                                   </ul>
                             </div>
                         </div>

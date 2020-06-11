@@ -22,7 +22,7 @@
             <div class="row">
                 <div class="col-md-8">
                     @if (Session::has('status'))
-                        <div class="alert alert-success">{{ Session::get('status') }}</div>
+                        <div class="alert alert-success">{{ Session::get('status') }} - <a href="{{ route('product.index') }}"><b>Kembali</b></a></div>
                     @endif
                     <div class="card">
                         <div class="card-header">
@@ -40,7 +40,8 @@
 
                                 <div class="form-group">
                                     <label for="diskripsi_produk">Diskripsi Produk</label>
-                                    <textarea id="editor" class="form-class" name="deskripsi_produk">{{ $produk->diskripsi }}</textarea>                                </div>
+                                    <textarea id="editor" class="form-class" name="deskripsi_produk">{{ $produk->deskripsi_produk }}</textarea>
+                                </div>
 
                                 <div class="form-group">
                                     <label for="merk">Merk</label>
@@ -48,7 +49,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-award"></i></span>
                                         </div>
-                                        <input type="text" class="form-control" placeholder="Masukan Merk" name="merk_produk" aria-describedby="basic-addon1" value="{{ $produk->merk }}" required>
+                                        <input type="text" class="form-control" placeholder="Masukan Merk" name="merk_produk" aria-describedby="basic-addon1" value="{{ $produk->merk_produk }}">
                                     </div>
                                 </div>
 
@@ -59,7 +60,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-list-ol"></i></span>
                                         </div>
-                                        <input required value="{{ $produk->nomor_produk }}" type="text" class="form-control" name="nomor_produk" placeholder="Masukan Nomor Produk">
+                                        <input value="{{ $produk->nomor_produk }}" type="text" class="form-control" name="nomor_produk" placeholder="Masukan Nomor Produk">
                                     </div>
                                 </div>
 
@@ -69,7 +70,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-layer-group"></i></span>
                                         </div>
-                                        <input value="{{ $produk->tipe_produk }}" required type="text" class="form-control" name="tipe_produk" data-role="tagsinput" placeholder="Masukan Type">
+                                        <input value="{{ $produk->tipe_produk }}" type="text" class="form-control" name="tipe_produk" data-role="tagsinput" placeholder="Masukan Type">
                                     </div>
                                 </div>
 
@@ -79,7 +80,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-bolt"></i></span>
                                         </div>
-                                        <input required  value="{{ $produk->max_power }}" type="text" class="form-control" name="max_power" placeholder="Masukan Max Power">
+                                        <input  value="{{ $produk->max_power }}" type="text" class="form-control" name="max_power" placeholder="Masukan Max Power">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -88,7 +89,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1"><i class=" fas fa-certificate"></i></span>
                                         </div>
-                                        <input required value="{{ $produk->certificate }}" type="text" class="form-control" name="certificate" placeholder="Masukan Certificate">
+                                        <input value="{{ $produk->certificate }}" type="text" class="form-control" name="certificate" placeholder="Masukan Certificate">
                                     </div>
                                 </div>
 
@@ -98,7 +99,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-money-check-alt"></i></span>
                                         </div>
-                                        <input required value="{{ $produk->payment }}" type="text" class="form-control" name="payment" placeholder="Masukan Certificate">
+                                        <input value="{{ $produk->payment }}" type="text" class="form-control" name="payment" placeholder="Masukan Certificate">
                                     </div>
                                 </div>
 
@@ -108,7 +109,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-undo-alt"></i></span>
                                         </div>
-                                        <input required value="{{ $produk->warrant }}" type="text" class="form-control" name="warrant" placeholder="Masukan Certificate">
+                                        <input value="{{ $produk->warrant }}" type="text" class="form-control" name="warrant" placeholder="Masukan Certificate">
                                     </div>
                                 </div>
                         </div>
@@ -133,11 +134,25 @@
                             <div class="form-group">
                                 <label for="inputState">Kategori</label>
                                 <select name="kategori" id="inputState" class="form-control">
-                                    <option value="">Choose</option>
-                                    <option>Kategori Satu</option>
-                                    <option>Kategori Dua</option>
+                                    <option value="">Pilih Kategori</option>
+                                    @foreach ($categories as $category)
+                                        <option {{ $category->nama_kategori == $produk->category ? 'selected' : '' }} >{{ $category->nama_kategori }}</option>
+                                    @endforeach
                                 </select>
                             </div>
+
+                            <div class="form-group">
+                                    <label>Pilih thumbnail</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input name="thumbnail" type="file" class="custom-file-input" id="inputGroupFile04">
+                                            <label class="custom-file-label" for="inputGroupFile04">Pilih gambar</label>
+                                        </div>
+                                    </div>
+                                    @if ($errors->first('gambar_slider'))
+                                        <small class="text-danger">Gambar slider harus diisi</small>
+                                    @endif
+                                </div>
 
 
                             <button type="submit" class="btn btn-primary btn-block"> <i class="fa fa-save mr-1"></i> Simpan Produk</button>
@@ -154,15 +169,10 @@
 @section('js')
 <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
 <script>
-
     CKEDITOR
         .replace('editor', {
-
-            filebrowserImageBrowseUrl: '/filemanager?type=Images',
-            filebrowserUploadUrl: '{{ route("image.upload", ["_token" => csrf_token()]) }}',
+            filebrowserUploadUrl: "{{route('image.upload', ['_token' => csrf_token() ])}}",
             filebrowserUploadMethod: 'form',
-
-
             toolbarGroups: [
                 { name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
                 { name: 'document', groups: [ 'mode', 'document', 'doctools' ] },

@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Frontend;
+namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
-use App\Models\Product;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class BeritaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
-        $categories = Category::all();
-        return view('frontend.pages.produk.produk')->withProducts($products)->withCategories($categories);
+        //
     }
 
     /**
@@ -50,13 +46,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $product = Product::find($id);
-        $categories = Category::all();
-        $relatedProduct = Product::where('category', $product->category)->paginate(3);
-        return view('frontend.pages.produk.single-produk')
-            ->withProduct($product)
-            ->withCategories($categories)
-            ->withRelated($relatedProduct);
+        //
     }
 
     /**
