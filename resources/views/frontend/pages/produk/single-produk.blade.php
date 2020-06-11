@@ -24,7 +24,7 @@
                                     <ul class="nav navbar-nav flex-column ml-0 pl-0">
                                         @foreach ($categories as $category)
                                     <li class="nav-item">
-                                        <a class="nav-link active" href="#">{{ $category->nama_kategori }}</a>
+                                        <a class="nav-link active" href="{{ url('/produk') }}/?kategory={{ $category->nama_kategori }}">{{ $category->nama_kategori }}</a>
                                       </li>
                                     @endforeach
                                     </ul>

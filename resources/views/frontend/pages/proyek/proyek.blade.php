@@ -12,75 +12,22 @@
         </div>
         <div class="project-wrapper">
             <div class="row">
+                @foreach ($proyeks as $proyek)
                 <div class="col-md-3">
                     <div class="demo-box bg-white mt-4 p-2">
-                        <a href="#" class="text-dark">
-                            <img src="{{ url('/') }}/frontend/assets/images/products/proyek-1.jpg" alt="" class="img-fluid mx-auto d-block">
+                        <a href="{{ route('proyek.show', $proyek->id) }}" class="text-dark">
+                            <img src="{{ url('/') }}/gambar-proyek/{{ $proyek->thumbnail_proyek }}" alt="" class="img-fluid mx-auto d-block">
                             <div class="p-3 text-center">
-                                <h5 class="mb-0">{{ strtoupper('rumah menggunakan 2kw dari sistem tenaga surya grid di Sri Lanka') }}</h5>
+                                <h5 class="mb-0">{{ strtoupper($proyek->title_proyek) }}</h5>
                             </div>
                         </a>
                     </div>
                 </div>
-                <!-- end col -->
-                <div class="col-md-3">
-                    <div class="demo-box bg-white mt-4 p-2">
-                        <a href="#" class="text-dark">
-                            <img src="{{ url('/') }}/frontend/assets/images/products/jaringan_sistem.jpg" alt="" class="img-fluid mx-auto d-block">
-                            <div class="p-3 text-center">
-                                <h5 class="mb-0">{{ strtoupper('rumah menggunakan 2kw dari sistem tenaga surya grid di Sri Lanka') }}</h5>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <!-- end col -->
-                <div class="col-md-3">
-                    <div class="demo-box bg-white mt-4 p-2">
-                        <a href="#" class="text-dark">
-                            <img src="{{ url('/') }}/frontend/assets/images/products/proyek-3.jpg" alt="" class="img-fluid mx-auto d-block">
-                            <div class="p-3 text-center">
-                                <h5 class="mb-0">{{ strtoupper('rumah menggunakan 2kw dari sistem tenaga surya grid di Sri Lanka') }}</h5>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <!-- end col -->
-                <div class="col-md-3">
-                    <div class="demo-box bg-white mt-4 p-2">
-                        <a href="#" class="text-dark">
-                            <img src="{{ url('/') }}/frontend/assets/images/products/proyek-5.jpg" alt="" class="img-fluid mx-auto d-block">
-                            <div class="p-3 text-center">
-                                <h5 class="mb-0">{{ strtoupper('rumah menggunakan 2kw dari sistem tenaga surya grid di Sri Lanka') }}</h5>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <!-- end col -->
-                <div class="col-md-3">
-                    <div class="demo-box bg-white mt-4 p-2">
-                        <a href="#" class="text-dark">
-                            <img src="{{ url('/') }}/frontend/assets/images/products/proyek-4.jpg" alt="" class="img-fluid mx-auto d-block">
-                            <div class="p-3 text-center">
-                                <h5 class="mb-0">{{ strtoupper('rumah menggunakan 2kw dari sistem tenaga surya grid di Sri Lanka') }}</h5>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <!-- end col -->
-                <div class="col-md-3">
-                    <div class="demo-box bg-white mt-4 p-2">
-                        <a href="#" class="text-dark">
-                            <img src="{{ url('/') }}/frontend/assets/images/products/proyek-6.jpg" alt="" class="img-fluid mx-auto d-block">
-                            <div class="p-3 text-center">
-                                <h5 class="mb-0">{{ strtoupper('rumah menggunakan 2kw dari sistem tenaga surya grid di Sri Lanka') }}</h5>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                @endforeach
                 <!-- end col -->
             </div>
         </div>
-        <div class="row justify-content-center">
+        <div class="row justify-content-center mt-3">
             <div class="col-md-12">
                 <nav aria-label="..." class="mx-auto m-0">
                     <ul class="pagination justify-content-center">

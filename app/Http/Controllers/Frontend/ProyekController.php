@@ -28,6 +28,7 @@ class ProyekController extends Controller
      */
     public function show($id)
     {
-        return view('frontend.pages.proyek.single-proyek');
+        $proyek = Proyek::find($id);
+        return view('frontend.pages.proyek.single-proyek')->withProyek($proyek);
     }
 }
