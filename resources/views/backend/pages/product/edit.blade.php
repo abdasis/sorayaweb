@@ -49,7 +49,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-award"></i></span>
                                         </div>
-                                        <input type="text" class="form-control" placeholder="Masukan Merk" name="merk_produk" aria-describedby="basic-addon1" value="{{ $produk->merk_produk }}">
+                                        <input type="text" class="form-control" placeholder="Masukan Merk" name="merk_produk" aria-describedby="basic-addon1" value="{{ $produk->merk }}">
                                     </div>
                                 </div>
 
