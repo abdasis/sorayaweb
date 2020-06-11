@@ -14,9 +14,13 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::all();
+        if ($request->get('kategory')) {
+            $products = Product::where('category', $request->get('kategory'))->get();
+        } else {
+            $products = Product::all();
+        }
         $categories = Category::all();
         return view('frontend.pages.produk.produk')->withProducts($products)->withCategories($categories);
     }
