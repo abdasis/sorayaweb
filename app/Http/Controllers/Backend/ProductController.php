@@ -144,7 +144,7 @@ class ProductController extends Controller
                 $thumbnail->move('gambar-produk', $thumbnail_name);
                 $newProduct->thumbnail = $thumbnail_name;
             } else {
-                $newProduct->thumbnail = 'produk-thumbnail-default.png';
+                $newProduct->thumbnail = $newProduct->thumbnail;
             }
             $newProduct->save();
 
