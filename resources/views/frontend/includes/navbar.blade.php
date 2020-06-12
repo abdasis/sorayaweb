@@ -1,9 +1,13 @@
+@php
+        $site = App\Models\Site::first();
+@endphp
+
 <nav class="navbar navbar-expand-lg fixed-top navbar-custom sticky sticky-dark shadow">
     <div class="container-fluid">
         <!-- LOGO -->
         <a class="logo text-uppercase" href="{{ URL('/') }}">
-            <img src="{{ url('/') }}/frontend/assets/images/ar-logo.png" alt="" class="logo-light" height="30" />
-            <img src="{{ url('/') }}/frontend/assets/images/ar-logo.png" alt="" class="logo-dark" height="30" />
+            <img src="{{ url('/') }}/frontend/assets/images/{{ $site->logo }}" alt="" class="logo-light" height="30" />
+            <img src="{{ url('/') }}/frontend/assets/images/{{ $site->logo }}" alt="" class="logo-dark" height="30" />
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">

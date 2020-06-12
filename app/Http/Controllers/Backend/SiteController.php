@@ -1,28 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Frontend;
+namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
-use App\Models\Product;
+use App\Models\Site;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
-class ProductController extends Controller
+class SiteController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        if ($request->get('kategory')) {
-            $products = Product::where('category', $request->get('kategory'))->get();
-        } else {
-            $products = Product::all();
-        }
-        $categories = Category::all();
-        return view('frontend.pages.produk.produk')->withProducts($products)->withCategories($categories);
+        //
     }
 
     /**
@@ -54,13 +48,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $product = Product::where('nama_produk', $id)->first();
-        $categories = Category::all();
-        $relatedProduct = Product::where('category', $product->category)->paginate(3);
-        return view('frontend.pages.produk.single-produk')
-            ->withProduct($product)
-            ->withCategories($categories)
-            ->withRelated($relatedProduct);
+        //
     }
 
     /**
@@ -95,5 +83,33 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function general()
+    {
+        $site = Site::first();
+        return view('backend.pages.setting.general')->withSite($site);
+    }
+
+    public function storeGeneral(Request $request)
+    {
+        $site = Site::first();
+        $site->nama_situs = $request->get('nama_situs');
+        $site->tagline = $request->get('tagline');
+        if ($request->hasFile('logo_situs')) {
+            $logo = $request->file('logo_situs');
+            $logo_name = date('d-m-y') . '-' . Str::slug($request->get('nama_situs')) . '.' . $logo->getClientOriginalExtension();
+            $logo->move(public_path('frontend/assets/images/'), $logo_name);
+            $site->logo = $logo_name;
+        }
+
+        $site->about_us = $request->get('aboutus');
+        $site->save();
+        return redirect()->back()->withStatus('Pengaturan Berhasil disimpan');
+    }
+
+    public function seo()
+    {
+        return 'Halaman seo';
     }
 }

@@ -97,8 +97,8 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="card-box about-box">
-                    <h1>TENTANG SUNWAY SOLAR</h1>
-                    <p>ANUGRAH RAYA Solar Enegegy adalah perusahaan grup nasioanl ang berkembang yang berkomitmen untuk menyediakan sistem pembangkit listrik pv secara global. AUGERAH RAYA solar enegy bekejra sama dengan SUNFINE SOLAR TECHNOLOGY CO LTD yang mengkhususkan diri dalam promotion and application of new energy products, especially solar pumping system.</p>
+                    <h1>TENTANG {{ $site->nama_situs }}</h1>
+                    <p>{{ $site->about_us }}</p>
                     <button class="btn btn-outline-light btn-lg btn-rounded">BACA LEBIH BANYAK</button>
                 </div>
             </div>

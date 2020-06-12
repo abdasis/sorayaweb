@@ -128,6 +128,7 @@
                                     <option value="">Choose</option>
                                     <option {{ $produk->status == 'Draft' ? 'selected' : '' }}>Draft</option>
                                     <option {{ $produk->status == 'Publish' ? 'selected' : '' }}>Publish</option>
+                                    <option {{ $produk->status == 'Featured' ? 'selected' : '' }}>Featured</option>
                                 </select>
                             </div>
 

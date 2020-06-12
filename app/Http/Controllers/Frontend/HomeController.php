@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Proyek;
+use App\Models\Site;
 use App\Models\Slider;
 use GuzzleHttp\Handler\Proxy;
 use Illuminate\Http\Request;
@@ -19,12 +20,14 @@ class HomeController extends Controller
     public function index()
     {
         $sliders = Slider::all();
-        $products = Product::paginate(6);
+        $products = Product::where('status', 'Featured')->paginate(6);
         $proyeks = Proyek::paginate(6);
+        $site = Site::first();
         return view('welcome')->with([
             'products' => $products,
             'sliders' => $sliders,
-            'proyeks' => $proyeks
+            'proyeks' => $proyeks,
+            'site' => $site
         ]);
     }
 

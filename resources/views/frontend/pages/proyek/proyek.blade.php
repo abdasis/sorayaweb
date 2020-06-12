@@ -15,7 +15,7 @@
                 @foreach ($proyeks as $proyek)
                 <div class="col-md-3">
                     <div class="demo-box bg-white mt-4 p-2">
-                        <a href="{{ route('proyek.show', $proyek->id) }}" class="text-dark">
+                        <a href="{{ route('proyek.show', $proyek->title_proyek) }}" class="text-dark">
                             <img src="{{ url('/') }}/gambar-proyek/{{ $proyek->thumbnail_proyek }}" alt="" class="img-fluid mx-auto d-block">
                             <div class="p-3 text-center">
                                 <h5 class="mb-0">{{ strtoupper($proyek->title_proyek) }}</h5>

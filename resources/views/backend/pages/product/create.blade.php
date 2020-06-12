@@ -127,6 +127,7 @@
                                     <option value="">Choose</option>
                                     <option {{ old('status') == 'Draft' ? 'selected' : '' }}>Draft</option>
                                     <option {{ old('status') == 'Publish' ? 'selected' : '' }}>Publish</option>
+                                    <option {{ old('status') == 'Featured' ? 'selected' : '' }}>Featured</option>
                                 </select>
                             </div>
 
@@ -151,7 +152,7 @@
                                     @if ($errors->first('gambar_slider'))
                                         <small class="text-danger">Gambar slider harus diisi</small>
                                     @endif
-                                </div>
+                            </div>
 
 
                             <button type="submit" class="btn btn-primary btn-block"> <i class="fa fa-save mr-1"></i> Simpan Produk</button>

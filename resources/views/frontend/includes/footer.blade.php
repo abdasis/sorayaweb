@@ -1,5 +1,6 @@
 @php
     $recentproduk = App\Models\Product::paginate(5);
+    $site = App\Models\Site::first();
 @endphp
 
 <footer class="bg-dark footer ">
@@ -8,10 +9,10 @@
             <div class="col-lg-6">
                 <div class="pr-lg-4">
                     <div class="mb-4">
-                        <img src="{{ url('/') }}/frontend/assets/images/ar-logo.png" alt="" height="30">
+                        <img src="{{ url('/') }}/frontend/assets/images/{{ $site->logo }}" alt="" height="30">
                     </div>
-                    <p class="text-white-50">AR-Solarwindenergy </p>
-                    <p class="text-white-50">Sebuah perusahaan yang ikut berpartisipasi dalam memberikan solusi energi terbaru yang dikenal dengan Energi Tenaga Surya. Tidak hanya bergerak sebagai distributor, tetapi juga merupakan perusahaan yang melakukan EPC (Engineering, Procurement, & Construction).</p>
+                    <p class="text-white-50">{{ $site->nama_situs }} </p>
+                    <p class="text-white-50">{{ $site->about_us }}.</p>
                 </div>
             </div>
 
@@ -19,9 +20,13 @@
                 <div class="footer-list">
                     <p class="text-white mb-2 footer-list-title">Produk Terbaru</p>
                     <ul class="list-unstyled">
-                        @foreach ($recentproduk as $produk)
-                        <li><a href="{{ route('produk.show', $produk->id) }}"><i class="mdi mdi-chevron-right mr-2"></i>{{ $produk->nama_produk  }}</a></li>
-                        @endforeach
+                        @if ($recentproduk->count() > 0)
+                            @foreach ($recentproduk as $produk)
+                            <li><a href="{{ route('produk.show', $produk->id) }}"><i class="mdi mdi-chevron-right mr-2"></i>{{ $produk->nama_produk  }}</a></li>
+                            @endforeach
+                        @else
+                            <li>Belum ada produk</li>
+                        @endif
                     </ul>
                 </div>
             </div>
@@ -30,7 +35,13 @@
                 <div class="footer-list">
                     <p class="text-white mb-2 footer-list-title">Alamat</p>
                     <ul class="list-unstyled">
-                        <li><a href="{{ route('produk.show', $produk->id) }}"><i class="mdi mdi-chevron-right mr-2"></i></a></li>
+                        @if ($recentproduk->count() > 0)
+                        @foreach ($recentproduk as $produk)
+                        <li><a href="{{ route('produk.show', $produk->id) }}"><i class="mdi mdi-chevron-right mr-2"></i>{{ $produk->nama_produk  }}</a></li>
+                        @endforeach
+                    @else
+                        <li>Belum ada produk</li>
+                    @endif
                     </ul>
                 </div>
             </div>

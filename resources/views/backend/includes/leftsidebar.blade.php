@@ -133,18 +133,18 @@
 
 
                 <li>
-                    <a href="#sidebarBerita" data-toggle="collapse">
+                    <a href="#sidebarSetting" data-toggle="collapse">
                         <i class="fas fa-cogs"></i>
                         <span> Setting </span>
                         <span class="menu-arrow"></span>
                     </a>
-                    <div class="collapse" id="sidebarBerita">
+                    <div class="collapse" id="sidebarSetting">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="#">General</a>
+                                <a href="{{ route('admin.setting.general') }}">General</a>
                             </li>
                             <li>
-                                <a href="#">SEO</a>
+                                <a href="{{ route('admin.setting.seo') }}">SEO</a>
                             </li>
                         </ul>
                     </div>

@@ -23,6 +23,7 @@ Route::resource('contact-us', 'Frontend\ContactController');
 Route::resource('proyek', 'Frontend\ProyekController');
 Route::get('about-us', 'Frontend\PageController@aboutUs')->name('aboutus');
 Route::get('berita', 'Frontend\PageController@berita')->name('berita');
+Route::get('berita/{berita}.html', 'Frontend\PageController@singleBerita')->name('berita.single');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('/product', 'Backend\ProductController');
@@ -30,6 +31,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('/slider', 'Backend\SliderController');
     Route::resource('/project', 'Backend\ProyekController');
     Route::resource('/berita', 'Backend\BeritaController', ['as' => 'admin']);
+    Route::group(['prefix' => 'setting'], function () {
+        Route::get('/general', 'Backend\SiteController@general')->name('admin.setting.general');
+        Route::post('/general', 'Backend\SiteController@storeGeneral')->name('admin.setting.store-general');
+        Route::get('/seo', 'Backend\SiteController@seo')->name('admin.setting.seo');
+        Route::resource('/setting', 'Backend\SiteController', ['as' => 'admin']);
+    });
 });
 
 Route::post('/images', 'Backend\ImageController@upload')->name('image.upload');
