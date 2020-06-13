@@ -45,45 +45,18 @@
         <!-- end row -->
 
         <div class="row">
+            @foreach ($categories as $category)
             <div class="col-lg-3">
                 <div class="features-box shadow">
                     <div class="features-img mb-4">
-                        <img src="{{ url('/') }}/frontend/assets/images/icons/panel-surya.png" alt="">
+                        <img src="{{ url('/') }}/icon-kategori/{{ $category->icon }}" alt="{{ $category->icon }}">
                     </div>
-                    <h4 class="mb-2">PANEL SURYA</h4>
-                    <p class="text-muted">link penuh untuk panel surya monocrystallin dan polycrystalline</p>
+                    <a href="{{ url('/produk') }}/?kategory={{ $category->nama_kategori }}"><h4 class="mb-2">{{ $category->nama_kategori }}</h4></a>
                 </div>
             </div>
+            @endforeach
             <!-- end col -->
-            <div class="col-lg-3">
-                <div class="features-box shadow">
-                    <div class="features-img mb-4 ">
-                        <img src="{{ url('/') }}/frontend/assets/images/icons/tata-surya.png" alt="">
-                    </div>
-                    <h4 class="mb-2">TATA SURYA</h4>
-                    <p class="text-muted">Sistem tata surya sunwa mengandung semua komponen yang</p>
-                </div>
-            </div>
-            <!-- end col -->
-            <div class="col-lg-3">
-                <div class="features-box shadow">
-                    <div class="features-img mb-4 ">
-                        <img src="{{ url('/') }}/frontend/assets/images/icons/solar-inverter.png" alt="">
-                    </div>
-                    <h4 class="mb-2">SOLAR INVERTER</h4>
-                    <p class="text-muted">matahari matahari matarhari menyedian grid (grid terikat)</p>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="features-box shadow">
-                    <div class="features-img mb-4 ">
-                        <img src="{{ url('/') }}/frontend/assets/images/icons/solar-inverter.png" alt="">
-                    </div>
-                    <h4 class="mb-2">PART & ACCESSORIES</h4>
-                    <p class="text-muted">matahari matahari matarhari menyedian grid (grid terikat)</p>
-                </div>
-            </div>
-            <!-- end col -->
+
         </div>
         <!-- end row -->
 

@@ -27,7 +27,7 @@
                     Tambah Kategori
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('kategori.update', $category->id) }}" method="post">
+                    <form action="{{ route('kategori.update', $category->id) }}" method="post" enctype="multipart/form-data">
                         @method('PUT')
                         @csrf
                         <div class="form-group">
@@ -35,6 +35,18 @@
                             <input type="text" name="nama_kategori" value="{{ $category->nama_kategori }}" class="form-control" placeholder="Masukan Nama Kategori">
                             @if ($errors->has('nama_kategori'))
                                 <small class="text-danger">Kategori harus diisi</small>
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <label>Pilih Icons</label>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input name="icon_kategori" type="file" class="custom-file-input" id="inputGroupFile04">
+                                    <label class="custom-file-label" for="inputGroupFile04">Pilih gambar</label>
+                                </div>
+                            </div>
+                            @if ($errors->first('icon_kategori'))
+                                <small class="text-danger">Thumbnail proyek harus diisi</small>
                             @endif
                         </div>
                         <div class="form-group">

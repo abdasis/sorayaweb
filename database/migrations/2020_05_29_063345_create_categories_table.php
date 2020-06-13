@@ -17,6 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->id();
             $table->string('nama_kategori', 100);
             $table->string('slug_kategori', 100);
+            $table->string('icon', 250)->nullable()->default('text');
             $table->timestamps();
         });
     }

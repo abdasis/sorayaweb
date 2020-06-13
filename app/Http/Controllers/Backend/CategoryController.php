@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
@@ -33,6 +34,12 @@ class CategoryController extends Controller
             $newCategory = new Category();
             $newCategory->nama_kategori = $request->get('nama_kategori');
             $newCategory->slug_kategori = Str::slug($request->get('nama_kategori', '-'));
+            if ($request->hasFile('icon_kategori')) {
+                $icon = $request->file('icon_kategori');
+                $icon_name = date('d-m-y-') . Str::slug($request->get('nama_kategori'), '-') . '.' . $icon->getClientOriginalExtension();
+                $icon->move(public_path('icon-kategori') . $icon_name);
+                $newCategory->icon = $icon_name;
+            }
             $newCategory->save();
             if ($newCategory) {
                 return redirect()->back()->withStatus('Kategori berhasil disimpan');
@@ -60,6 +67,17 @@ class CategoryController extends Controller
             $newCategory = Category::find($id);
             $newCategory->nama_kategori = $request->get('nama_kategori');
             $newCategory->slug_kategori = Str::slug($request->get('nama_kategori', '-'));
+            if ($request->hasFile('icon_kategori')) {
+                if ($newCategory->icon && file_exists(public_path('icon-kategori') . $newCategory->icon)) {
+                    File::delete(public_path('icon-kategori'), $newCategory->icon);
+                }
+                $icon = $request->file('icon_kategori');
+                $icon_name = date('d-m-y-') . Str::slug($request->get('nama_kategori'), '-') . '.' . $icon->getClientOriginalExtension();
+                $icon->move(public_path('icon-kategori'), $icon_name);
+                $newCategory->icon = $icon_name;
+            } else {
+                $newCategory->icon = $newCategory->icon;
+            }
             $newCategory->save();
             if ($newCategory) {
                 return redirect()->back()->withStatus('Kategori berhasil disimpan');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\Proyek;
 use App\Models\Site;
@@ -23,11 +24,13 @@ class HomeController extends Controller
         $products = Product::where('status', 'Featured')->paginate(6);
         $proyeks = Proyek::paginate(6);
         $site = Site::first();
+        $categories = Category::all();
         return view('welcome')->with([
             'products' => $products,
             'sliders' => $sliders,
             'proyeks' => $proyeks,
-            'site' => $site
+            'site' => $site,
+            'categories' => $categories
         ]);
     }
 

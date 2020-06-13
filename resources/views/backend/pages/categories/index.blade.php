@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="container-fluid">
+    @if (Session::has('status'))
+        <div class="alert alert-success">{{ Session::get('status') }}</div>
+    @endif
     <div class="row">
         <div class="col-12">
             <div class="page-title-box">
@@ -17,23 +20,31 @@
         </div>
     </div>
     <div class="row">
-
         <div class="col-md-4">
-            @if (Session::has('status'))
-                <div class="alert alert-success">{{ Session::get('status') }}</div>
-             @endif
             <div class="card">
                 <div class="card-header">
                     Tambah Kategori
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('kategori.store') }}" method="post">
+                    <form action="{{ route('kategori.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="">Nama Kategori</label>
                             <input type="text" name="nama_kategori" value="{{ old('nama_kategori') }}" class="form-control" placeholder="Masukan Nama Kategori">
                             @if ($errors->has('nama_kategori'))
                                 <small class="text-danger">Kategori harus diisi</small>
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <label>Pilih Icons</label>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input name="icon_kategori" type="file" class="custom-file-input" id="inputGroupFile04">
+                                    <label class="custom-file-label" for="inputGroupFile04">Pilih gambar</label>
+                                </div>
+                            </div>
+                            @if ($errors->first('icon_kategori'))
+                                <small class="text-danger">Thumbnail proyek harus diisi</small>
                             @endif
                         </div>
                         <div class="form-group">
