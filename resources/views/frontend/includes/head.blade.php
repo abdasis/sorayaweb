@@ -1,9 +1,13 @@
+@php
+        $site = App\Models\Site::first();
+@endphp
+
 <head>
     <meta charset="utf-8" />
-    <title>Soraya Web Profile - Company Profile By Abd. Asis</title>
+    <title>{{ $site->nama_situs }} - {{ $site->tagline }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
-    <meta content="Coderthemes" name="author" />
+    <meta content="{{ $site->about_us }}" name="description" />
+    <meta content="Abd. Asis" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- App favicon -->

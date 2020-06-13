@@ -15,6 +15,34 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-md-8 my-5">
+                <div class="row mb-2">
+                    <div class="col-md-4">
+                        <div class="card p-1">
+                            <div class="row align-items-center">
+                                <div class="col-md-3"><i class="mdi mdi-map-marker  mx-auto mt-4 mdi-36px"></i></div>
+                                <div class="col-md-9">Jl. Percobaan, Kec. Kesalahan, Kab. Ngebug wkkwwkw</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card p-1">
+                            <div class="row align-items-center">
+                                <div class="col-md-3"><i class="mdi mdi-phone mx-auto mt-4 mdi-36px"></i></div>
+                                <div class="col-md-9"><span class="pt-3">08172638646734</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card p-1">
+                            <div class="row align-items-center">
+                                <div class="col-md-3"><i class="mdi mdi-gmail mx-auto mt-4 mdi-36px"></i></div>
+                                <div class="col-md-9">
+                                    <span>abdasis@gmail.com</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="contact-wrapper shadow p-3 rounded">
                     <form action="" method="post">
                         @csrf

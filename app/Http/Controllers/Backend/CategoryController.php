@@ -40,6 +40,7 @@ class CategoryController extends Controller
                 $icon->move(public_path('icon-kategori') . $icon_name);
                 $newCategory->icon = $icon_name;
             }
+            $newCategory->diskripsi_kategori = $request->get('diskripsi_kategori');
             $newCategory->save();
             if ($newCategory) {
                 return redirect()->back()->withStatus('Kategori berhasil disimpan');
@@ -78,6 +79,7 @@ class CategoryController extends Controller
             } else {
                 $newCategory->icon = $newCategory->icon;
             }
+            $newCategory->diskripsi_kategori = $request->get('diskripsi_kategori');
             $newCategory->save();
             if ($newCategory) {
                 return redirect()->back()->withStatus('Kategori berhasil disimpan');
