@@ -73,7 +73,9 @@
                 <div class="card-box about-box">
                     <h1>TENTANG {{ $site->nama_situs }}</h1>
                     <p>{!! $site->about_us !!}</p>
-                    <button class="btn btn-outline-light btn-lg btn-rounded">BACA LEBIH BANYAK</button>
+                    <a href="{{ route('aboutus') }}">
+                        <button class="btn btn-outline-light btn-lg btn-rounded">BACA LEBIH BANYAK</button>
+                    </a>
                 </div>
             </div>
         </div>
