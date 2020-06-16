@@ -89,7 +89,7 @@
             <div class="col-lg-12">
                 <div class="title text-center mb-3">
                     <h3>PRODUCT KAMI</h3>
-                    <p class="text-muted">At solmen va esser necessi far uniform grammatica.</p>
+                    <p class="text-muted">Kumpulan produk yang kami sediakan untuk anda.</p>
                 </div>
             </div>
         </div>
