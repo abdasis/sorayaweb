@@ -126,15 +126,14 @@
                                     <div class="bg-light">
                                         <img src="{{ url('/') }}/gambar-produk/{{ $relatedProduct->thumbnail }}"  alt="product-pic" class="img-fluid">
                                     </div>
-
-                                    <div class="product-info">
+                                    <div class="product-info mt-1">
                                         <div class="row align-items-center">
                                             <div class="col">
-                                                <h5 class="font-15 mt-0 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">{{ $relatedProduct->nama_produk }}</a> </h5>
+                                                <h5 class="font-15 mt-0 sp-line-1"><a href="{{ route('produk.show', $product->nama_produk) }}" class="text-dark">{{ $relatedProduct->nama_produk }}</a> </h5>
                                             </div>
                                             <div class="col-auto">
                                                 <div class="product-price-tag">
-                                                    <a href="{{ route('produk.show', $relatedProduct->id) }}">
+                                                    <a href="{{ route('produk.show', $product->nama_produk) }}">
                                                         <button class="btn btn-soft-info btn-sm"><i class="mdi mdi-open-in-new"></i></button>
                                                     </a>
                                                 </div>

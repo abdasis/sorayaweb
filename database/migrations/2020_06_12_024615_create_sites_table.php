@@ -19,6 +19,9 @@ class CreateSitesTable extends Migration
             $table->string('tagline', 250)->nullable()->default('Tagline Situs');
             $table->string('logo', 250)->nullable()->default('Logo situs');
             $table->longText('about_us')->nullable()->default('text');
+            $table->string('alamat', 250)->nullable()->default('text');
+            $table->string('telepon', 250)->nullable()->default('text');
+            $table->string('email', 100)->nullable()->default('text');
             $table->timestamps();
         });
     }

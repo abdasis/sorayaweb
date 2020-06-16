@@ -22,31 +22,17 @@
                 @if (Session::has('status'))
                     <div class="alert alert-success">{{ Session::get('status') }}</div>
                 @endif
-                <form action="{{ route('admin.setting.store-general') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('admin.setting.store-about') }}" method="post" enctype="multipart/form-data">
                     @csrf
+
                     <div class="form-group">
-                        <label for="nama_situs">Title Website</label>
-                        <input type="text" name="nama_situs" placeholder="Masukan Title Website" class="form-control shadow-none" value="{{ $site->nama_situs }}">
+                        <label for="">Tentang Situs</label>
+                        <textarea name="aboutus" id="editor" cols="4" rows="5"  class="form-control shadow-none" placeholder="Masukan about us">{{ $site->about_us }}</textarea>
+                        <small class="text-muted">Digunakan untuk halaman about</small>
                     </div>
 
                     <div class="form-group">
-                        <label for="">Tag line</label>
-                        <input type="text" class="form-control shadow-none" name="tagline" placeholder="Masukan Tagline situs" value="{{ $site->tagline }}">
-                    </div>
-
-                    <img src="{{ asset('frontend/assets/images/') .'/' . $site->logo }}" class="img-thumbnail" width="80px" alt="{{ $site->logo }}">
-                    <div class="form-group">
-                        <label>Logo situs</label>
-                        <div class="input-group">
-                            <div class="custom-file">
-                                <input name="logo_situs" type="file" class="custom-file-input" id="inputGroupFile04">
-                                <label class="custom-file-label" for="inputGroupFile04">Pilih gambar</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary shadow-none">Simpan Pengaturan</button>
+                        <button type="submit" class="btn btn-info shadow-none">Simpan Pengaturan</button>
 
                     </div>
                 </form>
@@ -85,3 +71,4 @@
         })
     </script>
 @endsection
+

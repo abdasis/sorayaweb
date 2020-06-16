@@ -53,6 +53,8 @@
                             @if ($errors->first('icon_kategori'))
                                 <small class="text-danger">Thumbnail proyek harus diisi</small>
                             @endif
+
+                            .tablere
                         </div>
                         <div class="form-group">
                             <label for="">Diskripsi</label>

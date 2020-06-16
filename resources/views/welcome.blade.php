@@ -52,6 +52,7 @@
                         <img src="{{ url('/') }}/icon-kategori/{{ $category->icon }}" alt="{{ $category->icon }}">
                     </div>
                     <a href="{{ url('/produk') }}/?kategory={{ $category->nama_kategori }}"><h4 class="mb-2">{{ $category->nama_kategori }}</h4></a>
+                    <p class="text-center">{{ $category->diskripsi_kategori }}</p>
                 </div>
             </div>
             @endforeach
@@ -71,7 +72,7 @@
             <div class="col-md-6">
                 <div class="card-box about-box">
                     <h1>TENTANG {{ $site->nama_situs }}</h1>
-                    <p>{{ $site->about_us }}</p>
+                    <p>{!! $site->about_us !!}</p>
                     <button class="btn btn-outline-light btn-lg btn-rounded">BACA LEBIH BANYAK</button>
                 </div>
             </div>
@@ -100,7 +101,7 @@
             <div class="col-md-3">
                 <div class="card product-box shadow">
                     <div class="card-img-top">
-                        <a href="{{ route('produk.show', $product->id) }}">
+                        <a href="{{ route('produk.show', $product->nama_produk) }}">
                             <img src="{{ url('/') }}/gambar-produk/{{ $product->thumbnail }}"  alt="{{ $product->nama_produk }}" class="img-fluid align-content-center">
                         </a>
                     </div>
@@ -108,11 +109,11 @@
                         <div class="product-info">
                             <div class="row align-items-center">
                                 <div class="col">
-                                    <h5 class="font-15 mt-0 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">{{ $product->nama_produk }}</a> </h5>
+                                    <h5 class="font-15 mt-0 sp-line-1"><a href="{{ route('produk.show', $product->nama_produk) }}" class="text-dark">{{ $product->nama_produk }}</a> </h5>
                                 </div>
                                 <div class="col-auto">
                                     <div class="product-price-tag">
-                                        <a href="{{ route('produk.show', $product->id) }}">
+                                        <a href="{{ route('produk.show', $product->nama_produk) }}">
                                             <button class="btn btn-soft-info btn-sm"><i class="mdi mdi-open-in-new"></i></button>
                                         </a>
                                     </div>
@@ -166,7 +167,7 @@
 
 
 <!-- contact start -->
-<section class="section pb-0 bg-gradient" id="contact">
+<section class="section pb-5 bg-gradient" id="contact">
     <div class="bg-shape">
         <img src="{{ url('/') }}/frontend/assets/images/bg-shape-light.png" alt="" class="img-fluid mx-auto d-block">
     </div>
@@ -188,7 +189,7 @@
                     </div>
                     <div class="contact-details text-white">
                         <h5 class="text-white">E-mail</h5>
-                        <p class="text-white">example@abc.com</p>
+                        <p class="text-white">{{ $site->email }}</p>
                     </div>
                 </div>
             </div>
@@ -200,7 +201,7 @@
                     </div>
                     <div class="contact-details">
                         <h5 class="text-white">Phone</h5>
-                        <p class="text-white">012-345-6789</p>
+                        <p class="text-white">{{ $site->telepon }}</p>
                     </div>
                 </div>
             </div>
@@ -212,7 +213,7 @@
                     </div>
                     <div class="contact-details">
                         <h5 class="text-white">Address</h5>
-                        <p class="text-white">4413 Redbud Drive, New York</p>
+                        <p class="text-white">{{ $site->alamat }}</p>
                     </div>
                 </div>
             </div>

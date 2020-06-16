@@ -146,6 +146,12 @@
                             <li>
                                 <a href="{{ route('admin.setting.seo') }}">SEO</a>
                             </li>
+                            <li>
+                                <a href="{{ route('admin.setting.contact') }}">Contact Us</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.setting.about') }}">About Page</a>
+                            </li>
                         </ul>
                     </div>
                 </li>

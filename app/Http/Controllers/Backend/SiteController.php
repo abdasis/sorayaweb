@@ -112,4 +112,50 @@ class SiteController extends Controller
     {
         return 'Halaman seo';
     }
+
+    public function about(Request $request)
+    {
+        $site = Site::first();
+        return view('backend.pages.setting.about')->withSite($site);
+    }
+
+    public function contact(Request $request)
+    {
+        $site = Site::first();
+        return view('backend.pages.setting.contact')->withSite($site);
+    }
+
+    public function storeContact(Request $request)
+    {
+        if (Site::all()->count() > 0) {
+            $site = Site::first();
+            $site->alamat = $request->alamat ?? '-';
+            $site->email = $request->email ?? '-';
+            $site->telepon = $request->telepon ?? '-';
+            $site->save();
+        } else {
+            $site = new Site();
+            $site->alamat = $request->alamat ?? '-';
+            $site->email = $request->email ?? '-';
+            $site->telepon = $request->telepon ?? '-';
+            $site->save();
+        }
+
+        return redirect()->back()->withStatus('Halaman Contact Berhasil Diperbarui');
+    }
+
+    public function storeAbout(Request $request)
+    {
+        if (Site::all()->count() > 0) {
+            $site = Site::first();
+            $site->about_us = $request->get('aboutus');
+            $site->save();
+        } else {
+            $site = new Site;
+            $site->about_us = $request->get('aboutus');
+            $site->save();
+        }
+
+        return redirect()->back()->withStatus('Halaman About Berhasil Diperbarui');
+    }
 }

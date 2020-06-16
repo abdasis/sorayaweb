@@ -35,6 +35,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         Route::get('/general', 'Backend\SiteController@general')->name('admin.setting.general');
         Route::post('/general', 'Backend\SiteController@storeGeneral')->name('admin.setting.store-general');
         Route::get('/seo', 'Backend\SiteController@seo')->name('admin.setting.seo');
+        Route::get('/contact-us', 'Backend\SiteController@contact')->name('admin.setting.contact');
+        Route::post('/contact-us', 'Backend\SiteController@storeContact')->name('admin.setting.store-contact');
+        Route::get('/about-us', 'Backend\SiteController@about')->name('admin.setting.about');
+        Route::post('/about-us', 'Backend\SiteController@storeAbout')->name('admin.setting.store-about');
         Route::resource('/setting', 'Backend\SiteController', ['as' => 'admin']);
     });
 });

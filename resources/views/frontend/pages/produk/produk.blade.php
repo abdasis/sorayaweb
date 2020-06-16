@@ -1,8 +1,8 @@
 @extends('frontend.layouts.app')
 
 @section('content')
-<div class="container-fluid">
-    <div class="row section-breadcrumb mt-100">
+<div class="container-fluid mt-100 mb-5">
+    <div class="row section-breadcrumb">
         <nav aria-label="breadcrumb ">
             <ol class="breadcrumb pl-2">
                 <li class="breadcrumb-item"><a href="#">Beranda</a></li>
