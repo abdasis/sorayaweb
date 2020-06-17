@@ -131,6 +131,13 @@
                     </div>
                 </li>
 
+                <li>
+                    <a href="{{ route('admin.setting.contact') }}"><i class="fa fa-phone-square"></i>Contact Us</a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.setting.about') }}"><i class="fa fa-file-alt"></i>About Page</a>
+                </li>
+
 
                 <li>
                     <a href="#sidebarSetting" data-toggle="collapse">
@@ -145,12 +152,6 @@
                             </li>
                             <li>
                                 <a href="{{ route('admin.setting.seo') }}">SEO</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('admin.setting.contact') }}">Contact Us</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('admin.setting.about') }}">About Page</a>
                             </li>
                         </ul>
                     </div>
