@@ -68,7 +68,7 @@
                                 <a href="{{ route('project.create') }}">Tambah Proyek</a>
                             </li>
                             <li>
-                                <a href="#">Daftar Proyek</a>
+                                <a href="{{ route('project.index') }}">Daftar Proyek</a>
                             </li>
                         </ul>
                     </div>
