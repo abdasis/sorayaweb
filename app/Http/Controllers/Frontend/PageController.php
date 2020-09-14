@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Berita;
+use App\Models\Product;
 use App\Models\Site;
 use Illuminate\Http\Request;
 
@@ -30,6 +31,7 @@ class PageController extends Controller
 
     public function trading()
     {
-        return view('frontend.pages.trading');
+        $trading = Product::where('category', 'trading')->get();
+        return view('frontend.pages.trading')->withTradings($trading);
     }
 }
