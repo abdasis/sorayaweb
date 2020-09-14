@@ -27,4 +27,9 @@ class PageController extends Controller
         $berita = Berita::where('judul_berita', $berita)->first();
         return view('frontend.pages.berita.single-berita')->withBerita($berita);
     }
+
+    public function trading()
+    {
+        return view('frontend.pages.trading');
+    }
 }
